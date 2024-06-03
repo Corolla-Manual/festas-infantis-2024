@@ -17,7 +17,10 @@ namespace FestasInfantis.WinApp.ModuloCliente
         {
             set
             {
-
+                txtIdCliente.Text = value.Id.ToString();
+                txtNomeCliente.Text = value.Nome;
+                txtTelefoneCliente.Text = value.Telefone;
+                txtCpfCliente.Text =value.Cpf;
             }
             get
             {
@@ -32,7 +35,7 @@ namespace FestasInfantis.WinApp.ModuloCliente
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            return;
+            
         }
 
         private void btnGravar_Click(object sender, EventArgs e)

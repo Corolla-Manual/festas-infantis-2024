@@ -30,7 +30,7 @@
         {
             menuStrip1 = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
-            contatosMenuItem = new ToolStripMenuItem();
+            clientesMenuItem = new ToolStripMenuItem();
             tarefasToolStripMenuItem = new ToolStripMenuItem();
             compromissosMenuItem = new ToolStripMenuItem();
             aluguelToolStripMenuItem = new ToolStripMenuItem();
@@ -68,16 +68,17 @@
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contatosMenuItem, tarefasToolStripMenuItem, compromissosMenuItem, aluguelToolStripMenuItem });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientesMenuItem, tarefasToolStripMenuItem, compromissosMenuItem, aluguelToolStripMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(86, 24);
             cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
-            // contatosMenuItem
+            // clientesMenuItem
             // 
-            contatosMenuItem.Name = "contatosMenuItem";
-            contatosMenuItem.Size = new Size(180, 24);
-            contatosMenuItem.Text = "Cliente";
+            clientesMenuItem.Name = "clientesMenuItem";
+            clientesMenuItem.Size = new Size(180, 24);
+            clientesMenuItem.Text = "Cliente";
+            clientesMenuItem.Click += clientesMenuItem_Click;
             // 
             // tarefasToolStripMenuItem
             // 
@@ -279,7 +280,7 @@
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem cadastrosToolStripMenuItem;
-        private ToolStripMenuItem contatosMenuItem;
+        private ToolStripMenuItem clientesMenuItem;
         private ToolStripMenuItem compromissosMenuItem;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel statusLabelPrincipal;
