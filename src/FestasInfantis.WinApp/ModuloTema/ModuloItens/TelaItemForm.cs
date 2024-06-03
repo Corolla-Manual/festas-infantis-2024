@@ -9,7 +9,7 @@
             set
             {
                 txtDescricao.Text = value.Descricao;
-                txtValor.Text = value.Valor + "";
+                nupValor.Value = (Decimal)value.Valor;
             }
         }
         public TelaItemForm()
@@ -20,7 +20,7 @@
         private void btnGravar_Click(object sender, EventArgs e)
         {
             string descricao = txtDescricao.Text;
-            double valor = double.Parse(txtValor.Text);
+            double valor = (double)nupValor.Value;
             item = new Item(descricao, valor);
 
             List<string> erros = item.Validar();

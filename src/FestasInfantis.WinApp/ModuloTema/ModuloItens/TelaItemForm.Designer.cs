@@ -35,13 +35,14 @@
             label3 = new Label();
             textBox1 = new TextBox();
             txtDescricao = new TextBox();
-            txtValor = new TextBox();
+            nupValor = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)nupValor).BeginInit();
             SuspendLayout();
             // 
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(179, 126);
+            btnGravar.Location = new Point(284, 128);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(75, 23);
             btnGravar.TabIndex = 3;
@@ -52,7 +53,7 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(260, 126);
+            btnCancelar.Location = new Point(365, 128);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 4;
@@ -99,22 +100,23 @@
             // 
             txtDescricao.Location = new Point(87, 63);
             txtDescricao.Name = "txtDescricao";
-            txtDescricao.Size = new Size(248, 23);
+            txtDescricao.Size = new Size(353, 23);
             txtDescricao.TabIndex = 1;
             // 
-            // txtValor
+            // nupValor
             // 
-            txtValor.Location = new Point(87, 91);
-            txtValor.Name = "txtValor";
-            txtValor.Size = new Size(79, 23);
-            txtValor.TabIndex = 2;
+            nupValor.Location = new Point(87, 92);
+            nupValor.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+            nupValor.Name = "nupValor";
+            nupValor.Size = new Size(80, 23);
+            nupValor.TabIndex = 6;
             // 
             // TelaItemForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(347, 163);
-            Controls.Add(txtValor);
+            ClientSize = new Size(448, 163);
+            Controls.Add(nupValor);
             Controls.Add(txtDescricao);
             Controls.Add(textBox1);
             Controls.Add(label3);
@@ -127,6 +129,7 @@
             Name = "TelaItemForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Cadastro de Item";
+            ((System.ComponentModel.ISupportInitialize)nupValor).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -140,6 +143,6 @@
         private Label label3;
         private TextBox textBox1;
         private TextBox txtDescricao;
-        private TextBox txtValor;
+        private NumericUpDown nupValor;
     }
 }
