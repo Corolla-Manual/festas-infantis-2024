@@ -2,7 +2,7 @@
 
 namespace FestasInfantis.WinApp.ModuloTema.ModuloItens
 {
-    internal class Item : EntidadeBase
+    public class Item : EntidadeBase
     {
         public string Descricao { get; set; }
         public double Valor { get; set; }
@@ -29,7 +29,7 @@ namespace FestasInfantis.WinApp.ModuloTema.ModuloItens
             if (string.IsNullOrEmpty(Descricao.Trim()))
                 erros.Add("O campo \"Descrição\" é obrigatório");
 
-            if (Valor > 0)
+            if (Valor <= 0)
                 erros.Add("O campo \"Valor\" é obrigatório");
 
             return erros;
