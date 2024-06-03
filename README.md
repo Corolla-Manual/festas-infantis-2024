@@ -5,9 +5,9 @@
 Desenvolvido durante o curso Fullstack da [Academia do Programador](https://www.academiadoprogramador.net) 2024
 
 ---
-## DescriÁ„o
+## Descri√ß√£o
 
-Rafaela possui um negÛcio de festas infantis. Ela precisa controlar os aluguÈis e para isso ela precisa de uma aplicaÁ„o que permita cadastrar clientes, temas, itens de festa e aluguÈis.
+Rafaela possui um neg√≥cio de festas infantis. Ela precisa controlar os alugu√©is e para isso ela precisa de uma aplica√ß√£o que permita cadastrar clientes, temas, itens de festa e alugu√©is.
 
 ## Funcionalidades
 
@@ -15,71 +15,79 @@ Rafaela possui um negÛcio de festas infantis. Ela precisa controlar os aluguÈis 
 	- nome
 	- telefone
 	- cpf
-	- aluguÈis*
+	- alugu√©is*
 
-	1.1. Deve ser possÌvel calcular um **desconto** para novos aluguÈis a partir de alguÈis concluidos.
+	1.1. Deve ser poss√≠vel calcular um desconto para novos alugu√©is a partir de algu√©is concluidos.
+
+	1.2. Dever√° ser poss√≠vel visualizar os alugu√©is relacionados a um cliente atrav√©s de um bot√£o na tela principal.
 
 2. O cadastro do **Tema** consiste de:
 	- nome
 	- valor (total)
 	- itens
-	- aluguÈis*
+	- alugu√©is*
 
-	2.1. Deve ser possÌvel incluir v·rios itens em um tema, somando o valor total com base no valor de cada item.
+	2.1. Deve ser poss√≠vel incluir v√°rios itens em um tema, somando o valor total com base no valor de cada item.
 
 3. O cadastro do **Item** consiste de:
-	- descriÁ„o
+	- descri√ß√£o
 	- valor
 	- tema
 
-	3.1. N„o deve ser possÌvel utilizar o mesmo item em temas diferentes.
+	3.1. N√£o deve ser poss√≠vel utilizar o mesmo item em temas diferentes.
 
 4. O cadastro do **Aluguel** consiste de:
 	- cliente
 	- tema
 	- porcentagem de entrada
 	- porcentagem de desconto
-	- data do pagamento (caso concl˙ido)
+	- data do pagamento (caso concl√∫ido)
 	- status
 	- festa
 
-	4.1 O cadastro da **Festa** ser· realizado durante o aluguel e consiste de:
-		- endereÁo
+	4.1 O cadastro da **Festa** ser√° realizado durante o aluguel e consiste de:
+		- endere√ßo
 		- data
-		- hora de inÌcio
-		- hora de tÈrmino
+		- hora de in√≠cio
+		- hora de t√©rmino
+
+	4.2. A porcentagem de entrada √© obrigat√≥ria e dever√° ser selecionada entre os valores 40% e 50%.
+
+	4.3. Dever√° ser possivel filtrar a tabela de alugu√©is entre alugu√©is pendentes e conclu√≠dos.
+
+	4.4. Dever√° ser poss√≠vel concluir um aluguel atrav√©s de um bot√£o na tela principal.
 
 5. O **Controle de Desconto** consiste de:
 	- porcentagem de desconto por aluguel
-	- porcentagem m·xima de desconto
+	- porcentagem m√°xima de desconto
 
-	5.1. Para cada aluguel realizado por um cliente (a partir do primeiro), dever· ser calculado um valor de desconto.
-    5.2. O valor dever· ser calculado pela fÛrmula: (quantidade de aluguÈis do cliente * porcentagem de desconto).
-	5.3. As porcentagens dever„o ser configuradas ‡ partir de um bot„o da tela principal.
+	5.1. Para cada aluguel realizado por um cliente (a partir do primeiro), dever√° ser calculado um valor de desconto.
+    5.2. O valor dever√° ser calculado pela f√≥rmula: (quantidade de alugu√©is do cliente * porcentagem de desconto).
+	5.3. As porcentagens dever√£o ser configuradas √† partir de um bot√£o da tela principal.
 ---
 
 ## Requisitos
 
-- .NET SDK (recomendado .NET 8.0 ou superior) para compilaÁ„o e execuÁ„o do projeto.
+- .NET SDK (recomendado .NET 8.0 ou superior) para compila√ß√£o e execu√ß√£o do projeto.
 ---
 ## Como Usar
 
-#### Clone o RepositÛrio
+#### Clone o Reposit√≥rio
 ```
 git clone https://github.com/academia-do-programador/festas-infantis-2024.git
 ```
 
-#### Navegue atÈ a pasta raiz da soluÁ„o
+#### Navegue at√© a pasta raiz da solu√ß√£o
 ```
 cd festas-infantis-2024
 ```
 
-#### Restaure as dependÍncias
+#### Restaure as depend√™ncias
 ```
 dotnet restore
 ```
 
-#### Navegue atÈ a pasta do projeto
+#### Navegue at√© a pasta do projeto
 ```
 cd FestasInfantis.WinApp
 ```
