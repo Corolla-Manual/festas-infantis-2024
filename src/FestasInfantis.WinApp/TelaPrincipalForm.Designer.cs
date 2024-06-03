@@ -31,8 +31,8 @@
             menuStrip1 = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             contatosMenuItem = new ToolStripMenuItem();
-            compromissosMenuItem = new ToolStripMenuItem();
             tarefasToolStripMenuItem = new ToolStripMenuItem();
+            compromissosMenuItem = new ToolStripMenuItem();
             aluguelToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             statusLabelPrincipal = new ToolStripStatusLabel();
@@ -68,7 +68,7 @@
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contatosMenuItem, compromissosMenuItem, tarefasToolStripMenuItem, aluguelToolStripMenuItem });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contatosMenuItem, tarefasToolStripMenuItem, compromissosMenuItem, aluguelToolStripMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(86, 24);
             cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -76,26 +76,27 @@
             // contatosMenuItem
             // 
             contatosMenuItem.Name = "contatosMenuItem";
-            contatosMenuItem.Size = new Size(129, 24);
+            contatosMenuItem.Size = new Size(180, 24);
             contatosMenuItem.Text = "Cliente";
-            // 
-            // compromissosMenuItem
-            // 
-            compromissosMenuItem.Name = "compromissosMenuItem";
-            compromissosMenuItem.Size = new Size(129, 24);
-            compromissosMenuItem.Text = "Tema";
             // 
             // tarefasToolStripMenuItem
             // 
             tarefasToolStripMenuItem.Name = "tarefasToolStripMenuItem";
-            tarefasToolStripMenuItem.Size = new Size(129, 24);
+            tarefasToolStripMenuItem.Size = new Size(180, 24);
             tarefasToolStripMenuItem.Text = "Item";
             tarefasToolStripMenuItem.Click += tarefasToolStripMenuItem_Click;
+            // 
+            // compromissosMenuItem
+            // 
+            compromissosMenuItem.Name = "compromissosMenuItem";
+            compromissosMenuItem.Size = new Size(180, 24);
+            compromissosMenuItem.Text = "Tema";
+            compromissosMenuItem.Click += compromissosMenuItem_Click;
             // 
             // aluguelToolStripMenuItem
             // 
             aluguelToolStripMenuItem.Name = "aluguelToolStripMenuItem";
-            aluguelToolStripMenuItem.Size = new Size(129, 24);
+            aluguelToolStripMenuItem.Size = new Size(180, 24);
             aluguelToolStripMenuItem.Text = "Aluguel";
             // 
             // statusStrip1

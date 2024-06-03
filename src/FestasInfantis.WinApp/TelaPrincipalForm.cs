@@ -1,4 +1,5 @@
 using eAgenda.WinApp.Compartilhado;
+using FestasInfantis.WinApp.ModuloTema;
 using FestasInfantis.WinApp.ModuloTema.ModuloItens;
 
 namespace FestasInfantis.WinApp
@@ -8,6 +9,7 @@ namespace FestasInfantis.WinApp
         ControladorBase controlador;
 
         RepositorioItem repositorioItem;
+        RepositorioTema repositorioTema;
         public static TelaPrincipalForm Instancia { get; private set; }
 
         public TelaPrincipalForm()
@@ -15,6 +17,7 @@ namespace FestasInfantis.WinApp
             InitializeComponent();
 
             repositorioItem = new();
+            repositorioTema = new();
 
             lblTipoCadastro.Text = string.Empty;
             Instancia = this;
@@ -30,6 +33,10 @@ namespace FestasInfantis.WinApp
 
             lblTipoCadastro.Text = "Cadastro de " + controlador.TipoCadastro;
             ConfigurarTelaPrincipal(controlador);
+        }
+        private void compromissosMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controladorSelecionado)
@@ -84,5 +91,7 @@ namespace FestasInfantis.WinApp
         {
             controlador.Excluir();
         }
+
+
     }
 }
