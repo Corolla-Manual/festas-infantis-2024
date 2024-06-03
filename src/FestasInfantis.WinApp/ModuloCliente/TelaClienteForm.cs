@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace FestasInfantis.WinApp.ModuloCliente
+﻿namespace FestasInfantis.WinApp.ModuloCliente
 {
     public partial class TelaClienteForm : Form
     {
@@ -20,7 +10,7 @@ namespace FestasInfantis.WinApp.ModuloCliente
                 txtIdCliente.Text = value.Id.ToString();
                 txtNomeCliente.Text = value.Nome;
                 txtTelefoneCliente.Text = value.Telefone;
-                txtCpfCliente.Text =value.Cpf;
+                txtCpfCliente.Text = value.Cpf;
             }
             get
             {
@@ -35,7 +25,7 @@ namespace FestasInfantis.WinApp.ModuloCliente
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnGravar_Click(object sender, EventArgs e)

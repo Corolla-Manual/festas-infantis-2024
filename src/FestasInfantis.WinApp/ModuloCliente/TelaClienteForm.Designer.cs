@@ -43,7 +43,7 @@
             // txtTelefoneCliente
             // 
             txtTelefoneCliente.Location = new Point(102, 98);
-            txtTelefoneCliente.Mask = "(__) _____-____";
+            txtTelefoneCliente.Mask = "(00) 0 0000-0000";
             txtTelefoneCliente.Name = "txtTelefoneCliente";
             txtTelefoneCliente.Size = new Size(98, 23);
             txtTelefoneCliente.TabIndex = 0;
@@ -115,7 +115,7 @@
             // txtCpfCliente
             // 
             txtCpfCliente.Location = new Point(102, 127);
-            txtCpfCliente.Mask = "___.___.___-__";
+            txtCpfCliente.Mask = @"000\.000\.000-00";
             txtCpfCliente.Name = "txtCpfCliente";
             txtCpfCliente.Size = new Size(98, 23);
             txtCpfCliente.TabIndex = 0;
