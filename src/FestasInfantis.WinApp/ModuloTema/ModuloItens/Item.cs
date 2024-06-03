@@ -34,5 +34,9 @@ namespace FestasInfantis.WinApp.ModuloTema.ModuloItens
 
             return erros;
         }
+        public override string ToString()
+        {
+            return $"Descrição: {Descricao} | Valor: R${Valor}";
+        }
     }
 }

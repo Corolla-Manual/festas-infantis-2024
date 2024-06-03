@@ -36,7 +36,10 @@ namespace FestasInfantis.WinApp
         }
         private void compromissosMenuItem_Click(object sender, EventArgs e)
         {
+            controlador = new ControladorTema(repositorioTema, repositorioItem);
 
+            lblTipoCadastro.Text = "Cadastro de " + controlador.TipoCadastro;
+            ConfigurarTelaPrincipal(controlador);
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controladorSelecionado)
