@@ -6,6 +6,10 @@ namespace FestasInfantis.WinApp.ModuloCliente
     {
         private TabelaClienteControl tabelaCliente;
         private RepositorioCliente repositorioCliente;
+        public ControladorCliente(RepositorioCliente repositorio)
+        {
+            repositorioCliente = repositorio;
+        }
 
         public override string TipoCadastro { get { return "Clientes"; } }
 
@@ -21,7 +25,7 @@ namespace FestasInfantis.WinApp.ModuloCliente
 
             DialogResult resultado = telaCliente.ShowDialog();
 
-            if (resultado == DialogResult.OK)
+            if (resultado != DialogResult.OK)
                 return;
 
             Cliente novoCliente = telaCliente.Cliente;

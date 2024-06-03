@@ -31,7 +31,7 @@
             txtTelefoneCliente = new MaskedTextBox();
             txtTelefone = new Label();
             txtId = new Label();
-            textBox1 = new TextBox();
+            txtIdCliente = new TextBox();
             txtNome = new Label();
             txtNomeCliente = new TextBox();
             btnCancelar = new Button();
@@ -66,13 +66,13 @@
             txtId.TabIndex = 1;
             txtId.Text = "Id:";
             // 
-            // textBox1
+            // txtIdCliente
             // 
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(102, 40);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(58, 23);
-            textBox1.TabIndex = 2;
+            txtIdCliente.Enabled = false;
+            txtIdCliente.Location = new Point(102, 40);
+            txtIdCliente.Name = "txtIdCliente";
+            txtIdCliente.Size = new Size(58, 23);
+            txtIdCliente.TabIndex = 2;
             // 
             // txtNome
             // 
@@ -92,6 +92,7 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.DialogResult = DialogResult.Cancel;
             btnCancelar.Location = new Point(323, 164);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(106, 35);
@@ -102,6 +103,7 @@
             // 
             // btnGravar
             // 
+            btnGravar.DialogResult = DialogResult.OK;
             btnGravar.Location = new Point(211, 164);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(106, 35);
@@ -135,14 +137,17 @@
             Controls.Add(btnGravar);
             Controls.Add(btnCancelar);
             Controls.Add(txtNomeCliente);
-            Controls.Add(textBox1);
+            Controls.Add(txtIdCliente);
             Controls.Add(txtNome);
             Controls.Add(txtId);
             Controls.Add(label2);
             Controls.Add(txtTelefone);
             Controls.Add(txtCpfCliente);
             Controls.Add(txtTelefoneCliente);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "TelaClienteForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Cadastro de Clientes";
             ResumeLayout(false);
             PerformLayout();
@@ -153,7 +158,7 @@
         private MaskedTextBox txtTelefoneCliente;
         private Label txtTelefone;
         private Label txtId;
-        private TextBox textBox1;
+        private TextBox txtIdCliente;
         private Label txtNome;
         private TextBox txtNomeCliente;
         private Button btnCancelar;
