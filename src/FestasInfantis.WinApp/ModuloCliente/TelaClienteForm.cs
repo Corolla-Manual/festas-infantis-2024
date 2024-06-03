@@ -12,9 +12,45 @@ namespace FestasInfantis.WinApp.ModuloCliente
 {
     public partial class TelaClienteForm : Form
     {
+        private Cliente cliente;
+        public Cliente Cliente
+        {
+            set
+            {
+
+            }
+            get
+            {
+                return cliente;
+            }
+        }
+
         public TelaClienteForm()
         {
             InitializeComponent();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            return;
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            string nome = txtNomeCliente.Text;
+            string telefone = txtTelefoneCliente.Text;
+            string cpf = txtCpfCliente.Text;
+
+            cliente = new Cliente(nome, telefone, cpf);
+
+            List<string> erros = cliente.Validar();
+
+            if (erros.Count > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+            }
         }
     }
 }
