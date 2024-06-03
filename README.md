@@ -17,9 +17,9 @@ Rafaela possui um negócio de festas infantis. Ela precisa controlar os aluguéi
 	- cpf
 	- aluguéis*
 
-	1.1. Deve ser possível calcular um **desconto** para novos aluguéis a partir de alguéis concluidos.
+	1.1. Deve ser possível calcular um desconto para novos aluguéis a partir de alguéis concluidos.
 
-        1.2. Deverá ser possível visualizar os aluguéis relacionados a um cliente através de um botão na tela principal.
+	1.2. Deverá ser possível visualizar os aluguéis relacionados a um cliente através de um botão na tela principal.
 
 2. O cadastro do **Tema** consiste de:
 	- nome
