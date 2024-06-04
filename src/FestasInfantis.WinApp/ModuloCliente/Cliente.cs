@@ -1,13 +1,14 @@
 ﻿using eAgenda.ConsoleApp.Compartilhado;
+using FestasInfantis.WinApp.ModuloAluguel;
 
 namespace FestasInfantis.WinApp.ModuloCliente
 {
     public class Cliente : EntidadeBase
     {
-        public string Nome {  get; set; }
+        public string Nome { get; set; }
         public string Telefone { get; set; }
-        public string Cpf {  get; set; }
-        //public Aluguel Aluguel {  get; set; }
+        public string Cpf { get; set; }
+        public List<Aluguel> Alugueis { get; set; }
 
         public Cliente(string nome, string telefone, string cpf)
         {

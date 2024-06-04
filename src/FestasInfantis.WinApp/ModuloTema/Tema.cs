@@ -1,4 +1,5 @@
 ﻿using eAgenda.ConsoleApp.Compartilhado;
+using FestasInfantis.WinApp.ModuloAluguel;
 using FestasInfantis.WinApp.ModuloTema.ModuloItens;
 
 namespace FestasInfantis.WinApp.ModuloTema
@@ -15,8 +16,7 @@ namespace FestasInfantis.WinApp.ModuloTema
         public string Nome { get; set; }
         public double Valor { get; set; }
         public List<Item> Itens { get; set; }
-
-        //public List<Aluguel> Alugueis { get; set; }
+        public List<Aluguel> Alugueis { get; set; }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
