@@ -8,20 +8,20 @@ namespace FestasInfantis.WinApp.ModuloTema
         public Tema Tema
         {
             get { return tema; }
-            set { }
         }
+
         public TelaTemaForm(RepositorioItem repositorioItem)
         {
             InitializeComponent();
             CarregarListaItens(repositorioItem);
         }
 
-        private void CarregarListaItens(RepositorioItem repositorioItem)
+        private void CarregarListaItens(RepositorioItem repoItem)
         {
-            foreach (Item i in repositorioItem.SelecionarTodos())
+            foreach (Item it in repoItem.SelecionarTodos())
             {
-                if (i.Tema == null)
-                    listItens.Items.Add(i);
+                if (it.Tema == null)
+                    listItens.Items.Add(it);
             }
         }
 

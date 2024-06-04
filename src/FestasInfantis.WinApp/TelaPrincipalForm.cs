@@ -106,5 +106,10 @@ namespace FestasInfantis.WinApp
         {
             controlador.Excluir();
         }
+
+        private void TelaPrincipalForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

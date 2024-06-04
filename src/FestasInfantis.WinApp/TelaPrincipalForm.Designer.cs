@@ -76,28 +76,28 @@
             // clientesMenuItem
             // 
             clientesMenuItem.Name = "clientesMenuItem";
-            clientesMenuItem.Size = new Size(180, 24);
+            clientesMenuItem.Size = new Size(129, 24);
             clientesMenuItem.Text = "Cliente";
             clientesMenuItem.Click += clientesMenuItem_Click;
             // 
             // tarefasToolStripMenuItem
             // 
             tarefasToolStripMenuItem.Name = "tarefasToolStripMenuItem";
-            tarefasToolStripMenuItem.Size = new Size(180, 24);
+            tarefasToolStripMenuItem.Size = new Size(129, 24);
             tarefasToolStripMenuItem.Text = "Item";
             tarefasToolStripMenuItem.Click += tarefasToolStripMenuItem_Click;
             // 
             // compromissosMenuItem
             // 
             compromissosMenuItem.Name = "compromissosMenuItem";
-            compromissosMenuItem.Size = new Size(180, 24);
+            compromissosMenuItem.Size = new Size(129, 24);
             compromissosMenuItem.Text = "Tema";
             compromissosMenuItem.Click += compromissosMenuItem_Click;
             // 
             // aluguelToolStripMenuItem
             // 
             aluguelToolStripMenuItem.Name = "aluguelToolStripMenuItem";
-            aluguelToolStripMenuItem.Size = new Size(180, 24);
+            aluguelToolStripMenuItem.Size = new Size(129, 24);
             aluguelToolStripMenuItem.Text = "Aluguel";
             // 
             // statusStrip1
@@ -266,6 +266,7 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Festas Infantis";
+            FormClosed += TelaPrincipalForm_FormClosed;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             statusStrip1.ResumeLayout(false);
