@@ -46,7 +46,7 @@
             txtTelefoneCliente.Mask = "(00) 0 0000-0000";
             txtTelefoneCliente.Name = "txtTelefoneCliente";
             txtTelefoneCliente.Size = new Size(98, 23);
-            txtTelefoneCliente.TabIndex = 0;
+            txtTelefoneCliente.TabIndex = 2;
             // 
             // txtTelefone
             // 
@@ -88,7 +88,7 @@
             txtNomeCliente.Location = new Point(102, 69);
             txtNomeCliente.Name = "txtNomeCliente";
             txtNomeCliente.Size = new Size(274, 23);
-            txtNomeCliente.TabIndex = 2;
+            txtNomeCliente.TabIndex = 1;
             // 
             // btnCancelar
             // 
@@ -96,7 +96,7 @@
             btnCancelar.Location = new Point(323, 164);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(106, 35);
-            btnCancelar.TabIndex = 3;
+            btnCancelar.TabIndex = 5;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
@@ -107,7 +107,7 @@
             btnGravar.Location = new Point(211, 164);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(106, 35);
-            btnGravar.TabIndex = 3;
+            btnGravar.TabIndex = 4;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
             btnGravar.Click += btnGravar_Click;
@@ -115,10 +115,10 @@
             // txtCpfCliente
             // 
             txtCpfCliente.Location = new Point(102, 127);
-            txtCpfCliente.Mask = @"000\.000\.000-00";
+            txtCpfCliente.Mask = "000\\.000\\.000-00";
             txtCpfCliente.Name = "txtCpfCliente";
             txtCpfCliente.Size = new Size(98, 23);
-            txtCpfCliente.TabIndex = 0;
+            txtCpfCliente.TabIndex = 3;
             // 
             // label2
             // 
