@@ -109,7 +109,7 @@
             nupValor.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             nupValor.Name = "nupValor";
             nupValor.Size = new Size(80, 23);
-            nupValor.TabIndex = 6;
+            nupValor.TabIndex = 2;
             // 
             // TelaItemForm
             // 

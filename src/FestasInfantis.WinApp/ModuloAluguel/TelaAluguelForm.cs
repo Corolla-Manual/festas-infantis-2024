@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace FestasInfantis.WinApp.ModuloAluguel
+﻿namespace FestasInfantis.WinApp.ModuloAluguel
 {
     public partial class TelaAluguelForm : Form
     {
@@ -29,11 +19,6 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         public TelaAluguelForm()
         {
             InitializeComponent();
-        }
-
-        private void btnGravarAluguel_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnGravarFesta_Click(object sender, EventArgs e)
