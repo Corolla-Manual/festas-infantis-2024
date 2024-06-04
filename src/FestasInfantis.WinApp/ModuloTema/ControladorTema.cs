@@ -42,7 +42,34 @@ namespace FestasInfantis.WinApp.ModuloTema
 
         public override void Editar()
         {
-            // se vira ai filhão
+
+            Tema TemaSelecionado = repositorioTema.SelecionarPorId(tabelaTema.ObterRegistroSelecionado());
+            TelaAtualizacaoTemaForm telaTema = new(TemaSelecionado, repositorioItem);
+            if (TemaSelecionado == null)
+            {
+                MessageBox.Show(
+                    "Não é possível realizar esta ação sem um registro selecionado.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            DialogResult resultado = telaTema.ShowDialog();
+
+            if (resultado != DialogResult.OK)
+                return;
+
+            Tema TemaEditada = telaTema.Tema;
+
+            repositorioTema.Editar(TemaSelecionado.Id, TemaEditada);
+
+            CarregarTemas();
+
+            TelaPrincipalForm
+                .Instancia
+                .AtualizarRodape($"O registro \"{TemaEditada.Nome}\" foi editado com sucesso!");
         }
 
         public override void Excluir()
@@ -66,7 +93,7 @@ namespace FestasInfantis.WinApp.ModuloTema
                 return;
 
             repositorioTema.Excluir(TemaSelecionado.Id);
-
+            repositorioItem.LimparDesmarcados(TemaSelecionado.Nome);
             CarregarTemas();
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{TemaSelecionado.Nome}\" foi excluído com sucesso!");
