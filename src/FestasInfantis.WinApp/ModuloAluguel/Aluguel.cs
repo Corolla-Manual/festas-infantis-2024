@@ -12,9 +12,9 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         public DateTime DataPagamento { get; set; }
         public Cliente Cliente { get; set; }
         public Tema Tema { get; set; }
-        //public Festa Festa { get; set; }
+        public Festa Festa { get; set; }
 
-        public Aluguel(bool status, double porcentagemEntrada, double porcentagemDesconto, DateTime dataPagamento, Cliente cliente, Tema tema)
+        public Aluguel(bool status, double porcentagemEntrada, double porcentagemDesconto, DateTime dataPagamento, Cliente cliente, Tema tema, Festa festa)
         {
             Status = status;
             PorcentagemEntrada = porcentagemEntrada;
@@ -22,6 +22,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             DataPagamento = dataPagamento = DataPagamento;
             Cliente = cliente;
             Tema = tema;
+            Festa = festa;
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
@@ -34,6 +35,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             DataPagamento = a.DataPagamento;
             Cliente = a.Cliente;
             Tema = a.Tema;
+            Festa = a.Festa;
         }
 
         public override List<string> Validar()
