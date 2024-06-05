@@ -49,19 +49,23 @@
             txtHoraTermino = new MaskedTextBox();
             txtHoraInicio = new MaskedTextBox();
             tabPage2 = new TabPage();
-            textBox7 = new TextBox();
+            groupBox3 = new GroupBox();
+            toolStrip1 = new ToolStrip();
+            toolStripLabel1 = new ToolStripLabel();
+            toolStripLabel2 = new ToolStripLabel();
             textBox6 = new TextBox();
+            textBox7 = new TextBox();
+            label17 = new Label();
+            label18 = new Label();
             textBox8 = new TextBox();
+            label19 = new Label();
             textBox9 = new TextBox();
+            label20 = new Label();
             txtIdAluguel = new TextBox();
+            label21 = new Label();
             comboBoxSinal = new ComboBox();
             comboBoxTema = new ComboBox();
             comboBoxCliente = new ComboBox();
-            label21 = new Label();
-            label20 = new Label();
-            label19 = new Label();
-            label18 = new Label();
-            label17 = new Label();
             label15 = new Label();
             label22 = new Label();
             label13 = new Label();
@@ -70,10 +74,7 @@
             label1 = new Label();
             label2 = new Label();
             txtIdAlugel = new TextBox();
-            groupBox3 = new GroupBox();
-            toolStrip1 = new ToolStrip();
-            toolStripLabel1 = new ToolStripLabel();
-            toolStripLabel2 = new ToolStripLabel();
+            toolStripLabel3 = new ToolStripLabel();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -305,14 +306,48 @@
             tabPage2.Text = "Dados do Aluguel";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox7
+            // groupBox3
             // 
-            textBox7.Enabled = false;
-            textBox7.Font = new Font("Segoe UI", 9F);
-            textBox7.Location = new Point(343, 130);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(100, 23);
-            textBox7.TabIndex = 8;
+            groupBox3.Controls.Add(toolStrip1);
+            groupBox3.Controls.Add(textBox6);
+            groupBox3.Controls.Add(textBox7);
+            groupBox3.Controls.Add(label17);
+            groupBox3.Controls.Add(label18);
+            groupBox3.Controls.Add(textBox8);
+            groupBox3.Controls.Add(label19);
+            groupBox3.Controls.Add(textBox9);
+            groupBox3.Controls.Add(label20);
+            groupBox3.Controls.Add(txtIdAluguel);
+            groupBox3.Controls.Add(label21);
+            groupBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox3.Location = new Point(12, 111);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(448, 185);
+            groupBox3.TabIndex = 4;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Dados de Pagamento:";
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel3, toolStripLabel2 });
+            toolStrip1.Location = new Point(3, 25);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(442, 35);
+            toolStrip1.TabIndex = 0;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            toolStripLabel1.ImageScaling = ToolStripItemImageScaling.None;
+            toolStripLabel1.Name = "toolStripLabel1";
+            toolStripLabel1.Size = new Size(0, 22);
+            // 
+            // toolStripLabel2
+            // 
+            toolStripLabel2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            toolStripLabel2.Name = "toolStripLabel2";
+            toolStripLabel2.Size = new Size(62, 22);
+            toolStripLabel2.Text = "Calcular";
             // 
             // textBox6
             // 
@@ -323,6 +358,35 @@
             textBox6.Size = new Size(100, 23);
             textBox6.TabIndex = 7;
             // 
+            // textBox7
+            // 
+            textBox7.Enabled = false;
+            textBox7.Font = new Font("Segoe UI", 9F);
+            textBox7.Location = new Point(343, 130);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(100, 23);
+            textBox7.TabIndex = 8;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label17.Location = new Point(13, 77);
+            label17.Name = "label17";
+            label17.Size = new Size(100, 17);
+            label17.TabIndex = 0;
+            label17.Text = "% de Desconto:";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label18.Location = new Point(17, 108);
+            label18.Name = "label18";
+            label18.Size = new Size(96, 17);
+            label18.TabIndex = 0;
+            label18.Text = "Valor do Tema:";
+            // 
             // textBox8
             // 
             textBox8.Enabled = false;
@@ -331,6 +395,16 @@
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(100, 23);
             textBox8.TabIndex = 4;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label19.Location = new Point(8, 139);
+            label19.Name = "label19";
+            label19.Size = new Size(105, 17);
+            label19.TabIndex = 0;
+            label19.Text = "Valores do Sinal:";
             // 
             // textBox9
             // 
@@ -341,6 +415,16 @@
             textBox9.Size = new Size(100, 23);
             textBox9.TabIndex = 5;
             // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label20.Location = new Point(239, 79);
+            label20.Name = "label20";
+            label20.Size = new Size(97, 34);
+            label20.TabIndex = 0;
+            label20.Text = "Valor do Tema \r\ncom Desconto:";
+            // 
             // txtIdAluguel
             // 
             txtIdAluguel.Enabled = false;
@@ -349,6 +433,16 @@
             txtIdAluguel.Name = "txtIdAluguel";
             txtIdAluguel.Size = new Size(100, 23);
             txtIdAluguel.TabIndex = 6;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label21.Location = new Point(239, 133);
+            label21.Name = "label21";
+            label21.Size = new Size(99, 17);
+            label21.TabIndex = 0;
+            label21.Text = "Valor Pendente:";
             // 
             // comboBoxSinal
             // 
@@ -373,56 +467,6 @@
             comboBoxCliente.Name = "comboBoxCliente";
             comboBoxCliente.Size = new Size(150, 23);
             comboBoxCliente.TabIndex = 1;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label21.Location = new Point(239, 133);
-            label21.Name = "label21";
-            label21.Size = new Size(99, 17);
-            label21.TabIndex = 0;
-            label21.Text = "Valor Pendente:";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label20.Location = new Point(239, 79);
-            label20.Name = "label20";
-            label20.Size = new Size(97, 34);
-            label20.TabIndex = 0;
-            label20.Text = "Valor do Tema \r\ncom Desconto:";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label19.Location = new Point(8, 139);
-            label19.Name = "label19";
-            label19.Size = new Size(105, 17);
-            label19.TabIndex = 0;
-            label19.Text = "Valores do Sinal:";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label18.Location = new Point(17, 108);
-            label18.Name = "label18";
-            label18.Size = new Size(96, 17);
-            label18.TabIndex = 0;
-            label18.Text = "Valor do Tema:";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label17.Location = new Point(13, 77);
-            label17.Name = "label17";
-            label17.Size = new Size(100, 17);
-            label17.TabIndex = 0;
-            label17.Text = "% de Desconto:";
             // 
             // label15
             // 
@@ -500,49 +544,12 @@
             txtIdAlugel.Size = new Size(100, 23);
             txtIdAlugel.TabIndex = 1;
             // 
-            // groupBox3
+            // toolStripLabel3
             // 
-            groupBox3.Controls.Add(toolStrip1);
-            groupBox3.Controls.Add(textBox6);
-            groupBox3.Controls.Add(textBox7);
-            groupBox3.Controls.Add(label17);
-            groupBox3.Controls.Add(label18);
-            groupBox3.Controls.Add(textBox8);
-            groupBox3.Controls.Add(label19);
-            groupBox3.Controls.Add(textBox9);
-            groupBox3.Controls.Add(label20);
-            groupBox3.Controls.Add(txtIdAluguel);
-            groupBox3.Controls.Add(label21);
-            groupBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox3.Location = new Point(12, 111);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(448, 185);
-            groupBox3.TabIndex = 4;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Dados de Pagamento:";
-            // 
-            // toolStrip1
-            // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripLabel2 });
-            toolStrip1.Location = new Point(3, 25);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(442, 35);
-            toolStrip1.TabIndex = 0;
-            toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLabel1
-            // 
-            toolStripLabel1.Image = Properties.Resources.IconeMoeda;
-            toolStripLabel1.ImageScaling = ToolStripItemImageScaling.None;
-            toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(32, 32);
-            // 
-            // toolStripLabel2
-            // 
-            toolStripLabel2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.Size = new Size(62, 32);
-            toolStripLabel2.Text = "Calcular";
+            toolStripLabel3.Image = Properties.Resources.IconeMoeda;
+            toolStripLabel3.ImageScaling = ToolStripItemImageScaling.None;
+            toolStripLabel3.Name = "toolStripLabel3";
+            toolStripLabel3.Size = new Size(32, 32);
             // 
             // TelaAluguelForm
             // 
@@ -620,5 +627,6 @@
         private ToolStrip toolStrip1;
         private ToolStripLabel toolStripLabel1;
         private ToolStripLabel toolStripLabel2;
+        private ToolStripLabel toolStripLabel3;
     }
 }
