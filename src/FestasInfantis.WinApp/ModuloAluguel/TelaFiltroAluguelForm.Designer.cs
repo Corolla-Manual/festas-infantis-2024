@@ -32,15 +32,15 @@
             btnCancelar = new Button();
             groupBox1 = new GroupBox();
             rdbAlugueisConcluidos = new RadioButton();
-            rdbAlugueisPendentes = new RadioButton();
             rdbTodosAlugueis = new RadioButton();
+            rdbAlugueisPendentes = new RadioButton();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // btnGravar
             // 
             btnGravar.DialogResult = DialogResult.OK;
-            btnGravar.Location = new Point(170, 143);
+            btnGravar.Location = new Point(170, 173);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(106, 35);
             btnGravar.TabIndex = 6;
@@ -51,7 +51,7 @@
             // btnCancelar
             // 
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(282, 143);
+            btnCancelar.Location = new Point(282, 173);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(106, 35);
             btnCancelar.TabIndex = 7;
@@ -66,7 +66,7 @@
             groupBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(376, 125);
+            groupBox1.Size = new Size(376, 155);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "Selecione um Filtro:";
@@ -74,7 +74,7 @@
             // rdbAlugueisConcluidos
             // 
             rdbAlugueisConcluidos.AutoSize = true;
-            rdbAlugueisConcluidos.Location = new Point(29, 102);
+            rdbAlugueisConcluidos.Location = new Point(28, 111);
             rdbAlugueisConcluidos.Name = "rdbAlugueisConcluidos";
             rdbAlugueisConcluidos.Size = new Size(161, 24);
             rdbAlugueisConcluidos.TabIndex = 0;
@@ -82,21 +82,10 @@
             rdbAlugueisConcluidos.Text = "Aluguéis Concluidos";
             rdbAlugueisConcluidos.UseVisualStyleBackColor = true;
             // 
-            // rdbAlugueisPendentes
-            // 
-            rdbAlugueisPendentes.AutoSize = true;
-            rdbAlugueisPendentes.Location = new Point(29, 63);
-            rdbAlugueisPendentes.Name = "rdbAlugueisPendentes";
-            rdbAlugueisPendentes.Size = new Size(155, 24);
-            rdbAlugueisPendentes.TabIndex = 0;
-            rdbAlugueisPendentes.TabStop = true;
-            rdbAlugueisPendentes.Text = "Aluguéis Pendentes";
-            rdbAlugueisPendentes.UseVisualStyleBackColor = true;
-            // 
             // rdbTodosAlugueis
             // 
             rdbTodosAlugueis.AutoSize = true;
-            rdbTodosAlugueis.Location = new Point(30, 26);
+            rdbTodosAlugueis.Location = new Point(29, 35);
             rdbTodosAlugueis.Name = "rdbTodosAlugueis";
             rdbTodosAlugueis.Size = new Size(147, 24);
             rdbTodosAlugueis.TabIndex = 0;
@@ -104,11 +93,22 @@
             rdbTodosAlugueis.Text = "Todos os Aluguéis";
             rdbTodosAlugueis.UseVisualStyleBackColor = true;
             // 
+            // rdbAlugueisPendentes
+            // 
+            rdbAlugueisPendentes.AutoSize = true;
+            rdbAlugueisPendentes.Location = new Point(28, 72);
+            rdbAlugueisPendentes.Name = "rdbAlugueisPendentes";
+            rdbAlugueisPendentes.Size = new Size(155, 24);
+            rdbAlugueisPendentes.TabIndex = 0;
+            rdbAlugueisPendentes.TabStop = true;
+            rdbAlugueisPendentes.Text = "Aluguéis Pendentes";
+            rdbAlugueisPendentes.UseVisualStyleBackColor = true;
+            // 
             // TelaFiltroAluguelForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(400, 190);
+            ClientSize = new Size(405, 220);
             Controls.Add(groupBox1);
             Controls.Add(btnGravar);
             Controls.Add(btnCancelar);
