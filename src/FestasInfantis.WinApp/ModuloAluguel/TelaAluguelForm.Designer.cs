@@ -52,6 +52,7 @@
             groupBox3 = new GroupBox();
             toolStrip1 = new ToolStrip();
             toolStripLabel1 = new ToolStripLabel();
+            toolStripLabel3 = new ToolStripLabel();
             toolStripLabel2 = new ToolStripLabel();
             textBox6 = new TextBox();
             textBox7 = new TextBox();
@@ -74,7 +75,6 @@
             label1 = new Label();
             label2 = new Label();
             txtIdAlugel = new TextBox();
-            toolStripLabel3 = new ToolStripLabel();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -340,13 +340,20 @@
             // 
             toolStripLabel1.ImageScaling = ToolStripItemImageScaling.None;
             toolStripLabel1.Name = "toolStripLabel1";
-            toolStripLabel1.Size = new Size(0, 22);
+            toolStripLabel1.Size = new Size(0, 32);
+            // 
+            // toolStripLabel3
+            // 
+            toolStripLabel3.Image = Properties.Resources.IconeMoeda;
+            toolStripLabel3.ImageScaling = ToolStripItemImageScaling.None;
+            toolStripLabel3.Name = "toolStripLabel3";
+            toolStripLabel3.Size = new Size(32, 32);
             // 
             // toolStripLabel2
             // 
             toolStripLabel2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.Size = new Size(62, 22);
+            toolStripLabel2.Size = new Size(62, 32);
             toolStripLabel2.Text = "Calcular";
             // 
             // textBox6
@@ -457,7 +464,7 @@
             comboBoxTema.FormattingEnabled = true;
             comboBoxTema.Location = new Point(307, 18);
             comboBoxTema.Name = "comboBoxTema";
-            comboBoxTema.Size = new Size(121, 23);
+            comboBoxTema.Size = new Size(150, 23);
             comboBoxTema.TabIndex = 3;
             // 
             // comboBoxCliente
@@ -543,13 +550,6 @@
             txtIdAlugel.Name = "txtIdAlugel";
             txtIdAlugel.Size = new Size(100, 23);
             txtIdAlugel.TabIndex = 1;
-            // 
-            // toolStripLabel3
-            // 
-            toolStripLabel3.Image = Properties.Resources.IconeMoeda;
-            toolStripLabel3.ImageScaling = ToolStripItemImageScaling.None;
-            toolStripLabel3.Name = "toolStripLabel3";
-            toolStripLabel3.Size = new Size(32, 32);
             // 
             // TelaAluguelForm
             // 

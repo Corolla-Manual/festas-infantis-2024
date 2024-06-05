@@ -16,12 +16,12 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         public Aluguel(bool status, double porcentagemEntrada, double porcentagemDesconto, DateTime dataPagamento, Cliente cliente, Tema tema)
         {
-            status = Status;
-            porcentagemEntrada = PorcentagemEntrada;
-            porcentagemDesconto = PorcentagemDesconto;
-            dataPagamento = DataPagamento;
-            cliente = Cliente;
-            tema = Tema;
+            Status = status;
+            PorcentagemEntrada = porcentagemEntrada;
+            PorcentagemDesconto = porcentagemDesconto;
+            DataPagamento = dataPagamento = DataPagamento;
+            Cliente = cliente;
+            Tema = tema;
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
