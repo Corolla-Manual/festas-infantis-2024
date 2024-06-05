@@ -1,14 +1,18 @@
 ﻿using eAgenda.WinApp.Compartilhado;
+using FestasInfantis.WinApp.Compartilhado;
+using FestasInfantis.WinApp.ModuloAluguel;
 
 namespace FestasInfantis.WinApp.ModuloCliente
 {
-    public class ControladorCliente : ControladorBase
+    public class ControladorCliente : ControladorBase, IControladorAluguelVisualizavel
     {
         private TabelaClienteControl tabelaCliente;
         private RepositorioCliente repositorioCliente;
-        public ControladorCliente(RepositorioCliente repositorio)
+        private RepositorioAluguel repositorioAluguel;
+        public ControladorCliente(RepositorioCliente repositorio, RepositorioAluguel repoAluguel)
         {
             repositorioCliente = repositorio;
+            repositorioAluguel = repoAluguel;
         }
 
         public override string TipoCadastro { get { return "Clientes"; } }
@@ -18,6 +22,8 @@ namespace FestasInfantis.WinApp.ModuloCliente
         public override string ToolTipEditar { get { return "Editar um cliente existente"; } }
 
         public override string ToolTipExcluir { get { return "Excluir um cliente existente"; } }
+
+        public string ToolTipVisualizarAluguel => "Visualizar Aluguéis do cliente";
 
         public override void Adicionar()
         {
@@ -125,5 +131,10 @@ namespace FestasInfantis.WinApp.ModuloCliente
             return tabelaCliente;
         }
 
+        public void VisualizarAluguel()
+        {
+            TelaVisualizarAluguel telaAluguel = new(this);
+            telaAluguel.ShowDialog();
+        }
     }
 }

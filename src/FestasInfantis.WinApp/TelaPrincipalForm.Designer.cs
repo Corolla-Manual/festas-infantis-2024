@@ -208,6 +208,7 @@
             btnVisualizarAlugueis.Name = "btnVisualizarAlugueis";
             btnVisualizarAlugueis.Padding = new Padding(5);
             btnVisualizarAlugueis.Size = new Size(38, 38);
+            btnVisualizarAlugueis.Click += btnVisualizarAlugueis_Click;
             // 
             // btnConcluirAluguel
             // 

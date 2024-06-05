@@ -1,4 +1,6 @@
 using eAgenda.WinApp.Compartilhado;
+using FestasInfantis.WinApp.Compartilhado;
+using FestasInfantis.WinApp.ModuloAluguel;
 using FestasInfantis.WinApp.ModuloCliente;
 using FestasInfantis.WinApp.ModuloDesconto;
 using FestasInfantis.WinApp.ModuloTema;
@@ -14,7 +16,7 @@ namespace FestasInfantis.WinApp
         RepositorioTema repositorioTema;
         RepositorioCliente repositorioCliente;
         RepositorioDesconto repositorioDesconto;
-
+        RepositorioAluguel repositorioAluguel;
         public static TelaPrincipalForm Instancia { get; private set; }
 
         public TelaPrincipalForm()
@@ -24,6 +26,7 @@ namespace FestasInfantis.WinApp
             repositorioItem = new();
             repositorioTema = new();
             repositorioCliente = new();
+            repositorioAluguel = new();
             repositorioDesconto = new();
 
             lblTipoCadastro.Text = string.Empty;
@@ -51,7 +54,7 @@ namespace FestasInfantis.WinApp
 
         private void clientesMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorCliente(repositorioCliente);
+            controlador = new ControladorCliente(repositorioCliente, repositorioAluguel);
 
             lblTipoCadastro.Text = "Cadastro de " + controlador.TipoCadastro;
             ConfigurarTelaPrincipal(controlador);
@@ -72,6 +75,7 @@ namespace FestasInfantis.WinApp
             btnExcluir.Enabled = controladorSelecionado is ControladorBase;
 
             btnFiltrar.Enabled = controladorSelecionado is IControladorFiltravel;
+            btnVisualizarAlugueis.Enabled = controladorSelecionado is IControladorAluguelVisualizavel;
 
             ConfigurarToolTips(controladorSelecionado);
         }
@@ -84,6 +88,9 @@ namespace FestasInfantis.WinApp
 
             if (controladorSelecionado is IControladorFiltravel controladorFiltravel)
                 btnFiltrar.ToolTipText = controladorFiltravel.ToolTipFiltrar;
+
+            if (controladorSelecionado is IControladorAluguelVisualizavel controladorAluguelVisualizavel)
+                btnVisualizarAlugueis.ToolTipText = controladorAluguelVisualizavel.ToolTipVisualizarAluguel;
         }
 
         private void ConfigurarListagem(ControladorBase controladorSelecionado)
@@ -119,6 +126,12 @@ namespace FestasInfantis.WinApp
         {
             ControladorDesconto controladorDesconto = new(repositorioDesconto);
             controladorDesconto.ConfigurarDesconto();
+        }
+
+        private void btnVisualizarAlugueis_Click(object sender, EventArgs e)
+        {
+            if (controlador is IControladorAluguelVisualizavel controladorAluguelVisualizavel)
+                controladorAluguelVisualizavel.VisualizarAluguel();
         }
     }
 }
