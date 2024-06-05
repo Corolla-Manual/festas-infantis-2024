@@ -37,7 +37,6 @@ namespace FestasInfantis.WinApp.ModuloDesconto
             }
             else
                 return 0;
-
         }
     }
 }

@@ -48,7 +48,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
             CarregarAlugueis();
 
-            TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{novoAluguel}\" foi criado com sucesso!");
+            TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{novoAluguel.Id}\" foi criado com sucesso!");
         }
 
         public override void Editar()
@@ -83,7 +83,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
             CarregarAlugueis();
 
-            TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{aluguelEditado}\" foi criado com sucesso!");
+            TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{aluguelEditado.Id}\" foi criado com sucesso!");
         }
 
         public override void Excluir()
@@ -117,7 +117,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
             CarregarAlugueis();
 
-            TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{aluguelSelecionado}\" foi criado com sucesso!");
+            TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{aluguelSelecionado.Id}\" foi criado com sucesso!");
         }
 
         public void Filtrar()
