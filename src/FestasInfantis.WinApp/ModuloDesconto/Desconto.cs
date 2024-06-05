@@ -29,9 +29,9 @@ namespace FestasInfantis.WinApp.ModuloDesconto
         public double CalcularPorcentagem(Cliente cliente)
         {
             double desconto;
-            if (cliente.Alugueis.Count > 0)
+            if (cliente.Alugueis.FindAll(x => x.Status == true).Count > 0)
             {
-                desconto = cliente.Alugueis.Count * DescontoUnitario;
+                desconto = cliente.Alugueis.FindAll(x => x.Status == true).Count * DescontoUnitario;
 
                 return desconto > DescontoMaximo ? DescontoMaximo : desconto;
             }

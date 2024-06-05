@@ -46,7 +46,7 @@ namespace FestasInfantis.WinApp.ModuloCliente
 
         public override string ToString()
         {
-            return $"Nome: {Nome}, Telefone {Telefone}, Cpf: {Cpf}";
+            return $"{Nome}";
         }
     }
 }

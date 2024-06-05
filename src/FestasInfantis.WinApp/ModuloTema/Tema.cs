@@ -56,5 +56,9 @@ namespace FestasInfantis.WinApp.ModuloTema
             }
 
         }
+        public override string ToString()
+        {
+            return $"{Nome}";
+        }
     }
 }

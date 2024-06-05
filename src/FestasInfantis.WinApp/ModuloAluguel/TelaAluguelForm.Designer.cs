@@ -54,15 +54,15 @@
             toolStripLabel1 = new ToolStripLabel();
             toolStripLabel3 = new ToolStripLabel();
             toolStripLabel2 = new ToolStripLabel();
-            textBox6 = new TextBox();
-            textBox7 = new TextBox();
+            txtValorTemaDesconto = new TextBox();
+            txtValorPendente = new TextBox();
             label17 = new Label();
             label18 = new Label();
-            textBox8 = new TextBox();
+            txtPorcentagemDesconto = new TextBox();
             label19 = new Label();
-            textBox9 = new TextBox();
+            txtValorTema = new TextBox();
             label20 = new Label();
-            txtIdAluguel = new TextBox();
+            txtValorEntrada = new TextBox();
             label21 = new Label();
             comboBoxSinal = new ComboBox();
             comboBoxTema = new ComboBox();
@@ -309,15 +309,15 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(toolStrip1);
-            groupBox3.Controls.Add(textBox6);
-            groupBox3.Controls.Add(textBox7);
+            groupBox3.Controls.Add(txtValorTemaDesconto);
+            groupBox3.Controls.Add(txtValorPendente);
             groupBox3.Controls.Add(label17);
             groupBox3.Controls.Add(label18);
-            groupBox3.Controls.Add(textBox8);
+            groupBox3.Controls.Add(txtPorcentagemDesconto);
             groupBox3.Controls.Add(label19);
-            groupBox3.Controls.Add(textBox9);
+            groupBox3.Controls.Add(txtValorTema);
             groupBox3.Controls.Add(label20);
-            groupBox3.Controls.Add(txtIdAluguel);
+            groupBox3.Controls.Add(txtValorEntrada);
             groupBox3.Controls.Add(label21);
             groupBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox3.Location = new Point(12, 111);
@@ -356,23 +356,23 @@
             toolStripLabel2.Size = new Size(62, 32);
             toolStripLabel2.Text = "Calcular";
             // 
-            // textBox6
+            // txtValorTemaDesconto
             // 
-            textBox6.Enabled = false;
-            textBox6.Font = new Font("Segoe UI", 9F);
-            textBox6.Location = new Point(342, 85);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
-            textBox6.TabIndex = 7;
+            txtValorTemaDesconto.Enabled = false;
+            txtValorTemaDesconto.Font = new Font("Segoe UI", 9F);
+            txtValorTemaDesconto.Location = new Point(342, 85);
+            txtValorTemaDesconto.Name = "txtValorTemaDesconto";
+            txtValorTemaDesconto.Size = new Size(100, 23);
+            txtValorTemaDesconto.TabIndex = 7;
             // 
-            // textBox7
+            // txtValorPendente
             // 
-            textBox7.Enabled = false;
-            textBox7.Font = new Font("Segoe UI", 9F);
-            textBox7.Location = new Point(343, 130);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(100, 23);
-            textBox7.TabIndex = 8;
+            txtValorPendente.Enabled = false;
+            txtValorPendente.Font = new Font("Segoe UI", 9F);
+            txtValorPendente.Location = new Point(343, 130);
+            txtValorPendente.Name = "txtValorPendente";
+            txtValorPendente.Size = new Size(100, 23);
+            txtValorPendente.TabIndex = 8;
             // 
             // label17
             // 
@@ -394,33 +394,33 @@
             label18.TabIndex = 0;
             label18.Text = "Valor do Tema:";
             // 
-            // textBox8
+            // txtPorcentagemDesconto
             // 
-            textBox8.Enabled = false;
-            textBox8.Font = new Font("Segoe UI", 9F);
-            textBox8.Location = new Point(119, 74);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(100, 23);
-            textBox8.TabIndex = 4;
+            txtPorcentagemDesconto.Enabled = false;
+            txtPorcentagemDesconto.Font = new Font("Segoe UI", 9F);
+            txtPorcentagemDesconto.Location = new Point(119, 74);
+            txtPorcentagemDesconto.Name = "txtPorcentagemDesconto";
+            txtPorcentagemDesconto.Size = new Size(100, 23);
+            txtPorcentagemDesconto.TabIndex = 4;
             // 
             // label19
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label19.Location = new Point(8, 139);
+            label19.Location = new Point(4, 137);
             label19.Name = "label19";
-            label19.Size = new Size(105, 17);
+            label19.Size = new Size(109, 17);
             label19.TabIndex = 0;
-            label19.Text = "Valores do Sinal:";
+            label19.Text = "Valor de Entrada:";
             // 
-            // textBox9
+            // txtValorTema
             // 
-            textBox9.Enabled = false;
-            textBox9.Font = new Font("Segoe UI", 9F);
-            textBox9.Location = new Point(119, 105);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(100, 23);
-            textBox9.TabIndex = 5;
+            txtValorTema.Enabled = false;
+            txtValorTema.Font = new Font("Segoe UI", 9F);
+            txtValorTema.Location = new Point(119, 105);
+            txtValorTema.Name = "txtValorTema";
+            txtValorTema.Size = new Size(100, 23);
+            txtValorTema.TabIndex = 5;
             // 
             // label20
             // 
@@ -432,14 +432,14 @@
             label20.TabIndex = 0;
             label20.Text = "Valor do Tema \r\ncom Desconto:";
             // 
-            // txtIdAluguel
+            // txtValorEntrada
             // 
-            txtIdAluguel.Enabled = false;
-            txtIdAluguel.Font = new Font("Segoe UI", 9F);
-            txtIdAluguel.Location = new Point(119, 136);
-            txtIdAluguel.Name = "txtIdAluguel";
-            txtIdAluguel.Size = new Size(100, 23);
-            txtIdAluguel.TabIndex = 6;
+            txtValorEntrada.Enabled = false;
+            txtValorEntrada.Font = new Font("Segoe UI", 9F);
+            txtValorEntrada.Location = new Point(119, 134);
+            txtValorEntrada.Name = "txtValorEntrada";
+            txtValorEntrada.Size = new Size(100, 23);
+            txtValorEntrada.TabIndex = 6;
             // 
             // label21
             // 
@@ -454,7 +454,7 @@
             // comboBoxSinal
             // 
             comboBoxSinal.FormattingEnabled = true;
-            comboBoxSinal.Location = new Point(68, 59);
+            comboBoxSinal.Location = new Point(68, 54);
             comboBoxSinal.Name = "comboBoxSinal";
             comboBoxSinal.Size = new Size(150, 23);
             comboBoxSinal.TabIndex = 2;
@@ -489,11 +489,11 @@
             // 
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label22.Location = new Point(24, 59);
+            label22.Location = new Point(4, 57);
             label22.Name = "label22";
-            label22.Size = new Size(38, 17);
+            label22.Size = new Size(56, 17);
             label22.TabIndex = 0;
-            label22.Text = "Sinal:";
+            label22.Text = "Entrada:";
             // 
             // label13
             // 
@@ -599,7 +599,7 @@
         private TabPage tabPage1;
         private TabPage tabPage2;
         private Label label1;
-        private TextBox txtIdAluguel;
+        private TextBox txtValorEntrada;
         private Label label2;
         private ComboBox comboBoxSinal;
         private ComboBox comboBoxTema;
@@ -611,10 +611,10 @@
         private Label label17;
         private Label label15;
         private Label label13;
-        private TextBox textBox7;
-        private TextBox textBox6;
-        private TextBox textBox8;
-        private TextBox textBox9;
+        private TextBox txtValorPendente;
+        private TextBox txtValorTemaDesconto;
+        private TextBox txtPorcentagemDesconto;
+        private TextBox txtValorTema;
         private Label label22;
         private TextBox txtIdAlugel;
         private Button btnGravarFesta;

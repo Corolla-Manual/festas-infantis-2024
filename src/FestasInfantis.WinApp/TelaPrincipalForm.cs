@@ -64,7 +64,7 @@ namespace FestasInfantis.WinApp
 
         private void AluguelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorAluguel(repositorioAluguel);
+            controlador = new ControladorAluguel(repositorioAluguel, repositorioCliente, repositorioTema, repositorioDesconto);
 
             lblTipoCadastro.Text = "Cadastro de " + controlador.TipoCadastro;
             ConfigurarTelaPrincipal(controlador);

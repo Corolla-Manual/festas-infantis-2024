@@ -44,6 +44,7 @@ namespace FestasInfantis.WinApp.ModuloTema
         {
             string nome = txtNome.Text;
             List<Item> itens = listItens.CheckedItems.Cast<Item>().ToList();
+            List<Item> ItensCadastrados = new List<Item>();
             repoItem.LimparDesmarcados(nomeOriginal);
             tema = new Tema(nome, itens);
             tema.MarcarItens();

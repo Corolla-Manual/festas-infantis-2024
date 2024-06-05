@@ -1,4 +1,7 @@
 ﻿using eAgenda.WinApp.Compartilhado;
+using FestasInfantis.WinApp.ModuloCliente;
+using FestasInfantis.WinApp.ModuloDesconto;
+using FestasInfantis.WinApp.ModuloTema;
 
 namespace FestasInfantis.WinApp.ModuloAluguel
 {
@@ -7,10 +10,17 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         private ListagemAluguelControl listagemAluguel;
         private RepositorioAluguel repositorioAluguel;
         private TabelaAluguelControl tabelaAluguel;
+        private List<Cliente> clientes;
+        private List<Tema> temas;
+        private Desconto desconto;
 
-        public ControladorAluguel(RepositorioAluguel repAluguel)
+        public ControladorAluguel(RepositorioAluguel repAluguel, RepositorioCliente repoCliente,
+            RepositorioTema repoTema, RepositorioDesconto repoDesconto)
         {
             repositorioAluguel = repAluguel;
+            clientes = repoCliente.SelecionarTodos();
+            temas = repoTema.SelecionarTodos();
+            desconto = repoDesconto.RetornaDesconto();
         }
 
         public override string TipoCadastro { get { return "Aluguéis"; } }
@@ -25,7 +35,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         public override void Adicionar()
         {
-            TelaAluguelForm telaAluguel = new TelaAluguelForm();
+            TelaAluguelForm telaAluguel = new TelaAluguelForm(clientes, temas, desconto);
 
             DialogResult resultado = telaAluguel.ShowDialog();
 
@@ -43,7 +53,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         public override void Editar()
         {
-            TelaAluguelForm telaAluguel = new TelaAluguelForm();
+            TelaAluguelForm telaAluguel = new TelaAluguelForm(clientes, temas, desconto);
 
             int idSelecionado = tabelaAluguel.ObterRegistroSelecionado();
 
