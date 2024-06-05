@@ -1,21 +1,29 @@
-﻿using eAgenda.WinApp.Compartilhado;
+﻿using FestasInfantis.WinApp.ModuloAluguel;
 
 namespace FestasInfantis.WinApp.ModuloCliente
 {
     public partial class TelaVisualizarAluguel : Form
     {
-        public TelaVisualizarAluguel(ControladorBase controlador)
+        public TelaVisualizarAluguel(Cliente clienteSelecionado)
         {
             InitializeComponent();
-            ConfigurarListagem(controlador);
+            ConfigurarListagem(clienteSelecionado);
         }
-        private void ConfigurarListagem(ControladorBase controladorSelecionado)
+        private void ConfigurarListagem(Cliente clienteSelecionado)
         {
-            UserControl listagemContato = controladorSelecionado.ObterListagem();
+            UserControl listagemContato = ObterAlugueis(clienteSelecionado);
             listagemContato.Dock = DockStyle.Fill;
 
-            pnlRegistros.Controls.Clear();
-            pnlRegistros.Controls.Add(listagemContato);
+            pnlAluguel.Controls.Clear();
+            pnlAluguel.Controls.Add(listagemContato);
+        }
+        private UserControl ObterAlugueis(Cliente clienteSelecionado)
+        {
+            TabelaAluguelControl tabelaAluguel = new TabelaAluguelControl();
+
+            tabelaAluguel.AtualizarRegistros(clienteSelecionado.Alugueis);
+
+            return tabelaAluguel;
         }
     }
 }

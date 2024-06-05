@@ -11,6 +11,7 @@ namespace FestasInfantis.WinApp.ModuloTema
             Nome = nome;
             Itens = itens;
             Valor = CalcularTotal();
+            Alugueis = new List<Aluguel>();
         }
 
         public string Nome { get; set; }
@@ -24,6 +25,7 @@ namespace FestasInfantis.WinApp.ModuloTema
             Nome = tema.Nome;
             Valor = tema.Valor;
             Itens = tema.Itens;
+            Alugueis = tema.Alugueis;
         }
 
         public override List<string> Validar()

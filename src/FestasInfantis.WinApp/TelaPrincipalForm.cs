@@ -54,7 +54,7 @@ namespace FestasInfantis.WinApp
 
         private void clientesMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorCliente(repositorioCliente, repositorioAluguel);
+            controlador = new ControladorCliente(repositorioCliente);
 
             lblTipoCadastro.Text = "Cadastro de " + controlador.TipoCadastro;
             ConfigurarTelaPrincipal(controlador);

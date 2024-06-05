@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pnlRegistros = new Panel();
+            pnlAluguel = new Panel();
             SuspendLayout();
             // 
-            // pnlRegistros
+            // pnlAluguel
             // 
-            pnlRegistros.Dock = DockStyle.Fill;
-            pnlRegistros.Location = new Point(0, 0);
-            pnlRegistros.Name = "pnlRegistros";
-            pnlRegistros.Size = new Size(433, 247);
-            pnlRegistros.TabIndex = 0;
+            pnlAluguel.Dock = DockStyle.Fill;
+            pnlAluguel.Location = new Point(0, 0);
+            pnlAluguel.Name = "pnlAluguel";
+            pnlAluguel.Size = new Size(715, 255);
+            pnlAluguel.TabIndex = 0;
             // 
             // TelaVisualizarAluguel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(433, 247);
-            Controls.Add(pnlRegistros);
+            ClientSize = new Size(715, 255);
+            Controls.Add(pnlAluguel);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "TelaVisualizarAluguel";
@@ -55,6 +55,6 @@
 
         #endregion
 
-        private Panel pnlRegistros;
+        private Panel pnlAluguel;
     }
 }

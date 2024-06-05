@@ -1,6 +1,5 @@
 ﻿using eAgenda.WinApp.Compartilhado;
 using FestasInfantis.WinApp.Compartilhado;
-using FestasInfantis.WinApp.ModuloAluguel;
 
 namespace FestasInfantis.WinApp.ModuloCliente
 {
@@ -8,11 +7,10 @@ namespace FestasInfantis.WinApp.ModuloCliente
     {
         private TabelaClienteControl tabelaCliente;
         private RepositorioCliente repositorioCliente;
-        private RepositorioAluguel repositorioAluguel;
-        public ControladorCliente(RepositorioCliente repositorio, RepositorioAluguel repoAluguel)
+
+        public ControladorCliente(RepositorioCliente repositorio)
         {
             repositorioCliente = repositorio;
-            repositorioAluguel = repoAluguel;
         }
 
         public override string TipoCadastro { get { return "Clientes"; } }
@@ -133,7 +131,21 @@ namespace FestasInfantis.WinApp.ModuloCliente
 
         public void VisualizarAluguel()
         {
-            TelaVisualizarAluguel telaAluguel = new(this);
+            int idSelecionado = tabelaCliente.ObterRegistroSelecionado();
+
+            Cliente clienteSelecionado = repositorioCliente.SelecionarPorId(idSelecionado);
+
+            if (clienteSelecionado == null)
+            {
+                MessageBox.Show(
+                     "Não é possível realizar esta ação sem um registro selecionado.",
+                     "Aviso",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Error
+                     );
+                return;
+            }
+            TelaVisualizarAluguel telaAluguel = new(clienteSelecionado);
             telaAluguel.ShowDialog();
         }
     }

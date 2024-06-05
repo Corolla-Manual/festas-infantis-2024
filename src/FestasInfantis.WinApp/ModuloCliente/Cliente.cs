@@ -15,6 +15,7 @@ namespace FestasInfantis.WinApp.ModuloCliente
             Nome = nome;
             Telefone = telefone;
             Cpf = cpf;
+            Alugueis = new List<Aluguel>();
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
@@ -24,6 +25,7 @@ namespace FestasInfantis.WinApp.ModuloCliente
             Nome = c.Nome;
             Telefone = c.Telefone;
             Cpf = c.Cpf;
+            Alugueis = c.Alugueis;
         }
 
         public override List<string> Validar()
