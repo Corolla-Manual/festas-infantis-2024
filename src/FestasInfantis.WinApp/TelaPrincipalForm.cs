@@ -37,14 +37,24 @@ namespace FestasInfantis.WinApp
         {
             statusLabelPrincipal.Text = texto;
         }
-        private void tarefasToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void ClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorCliente(repositorioCliente, repositorioAluguel);
+
+            lblTipoCadastro.Text = "Cadastro de " + controlador.TipoCadastro;
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void ItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorItem(repositorioItem);
 
             lblTipoCadastro.Text = "Cadastro de " + controlador.TipoCadastro;
             ConfigurarTelaPrincipal(controlador);
         }
-        private void compromissosMenuItem_Click(object sender, EventArgs e)
+
+        private void TemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorTema(repositorioTema, repositorioItem);
 
@@ -52,9 +62,9 @@ namespace FestasInfantis.WinApp
             ConfigurarTelaPrincipal(controlador);
         }
 
-        private void clientesMenuItem_Click(object sender, EventArgs e)
+        private void AluguelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorCliente(repositorioCliente);
+            controlador = new ControladorAluguel(repositorioAluguel);
 
             lblTipoCadastro.Text = "Cadastro de " + controlador.TipoCadastro;
             ConfigurarTelaPrincipal(controlador);

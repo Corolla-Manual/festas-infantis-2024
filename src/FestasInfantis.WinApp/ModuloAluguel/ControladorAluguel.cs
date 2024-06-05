@@ -10,6 +10,11 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         private RepositorioAluguel repositorioAluguel;
         private TabelaAluguelControl tabelaAluguel;
 
+        public ControladorAluguel(RepositorioAluguel repAluguel)
+        {
+            repositorioAluguel = repAluguel;
+        }
+
         public override string TipoCadastro { get { return "Aluguéis"; } }
 
         public override string ToolTipAdicionar { get { return "Cadastrar um novo Aluguel";} }
