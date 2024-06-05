@@ -1,8 +1,6 @@
-﻿using eAgenda.ConsoleApp.Compartilhado;
-
-namespace FestasInfantis.WinApp.ModuloAluguel
+﻿namespace FestasInfantis.WinApp.ModuloAluguel
 {
-    public class Festa : EntidadeBase
+    public class Festa
     {
         public string Endereco { get; set; }
         public DateTime DataFesta  { get; set; }
@@ -15,16 +13,6 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             DataFesta = dataFesta;
             HoraInicio = horaInicio;
             HoraTermino = horaTermino;
-        }
-
-        public override void AtualizarRegistro(EntidadeBase novoRegistro)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override List<string> Validar()
-        {
-            throw new NotImplementedException();
         }
     }
 }
