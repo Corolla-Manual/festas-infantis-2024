@@ -1,12 +1,10 @@
 ﻿using eAgenda.WinApp.Compartilhado;
-using FestasInfantis.WinApp.ModuloCliente;
 
 namespace FestasInfantis.WinApp.ModuloAluguel
 {
     public class ControladorAluguel : ControladorBase, IControladorFiltravel
     {
         private ListagemAluguelControl listagemAluguel;
-
         private RepositorioAluguel repositorioAluguel;
         private TabelaAluguelControl tabelaAluguel;
 
@@ -17,7 +15,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         public override string TipoCadastro { get { return "Aluguéis"; } }
 
-        public override string ToolTipAdicionar { get { return "Cadastrar um novo Aluguel";} }
+        public override string ToolTipAdicionar { get { return "Cadastrar um novo Aluguel"; } }
 
         public override string ToolTipEditar { get { return "Editar um Aluguel existente"; } }
 
@@ -127,11 +125,11 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
             if (filtroSelecionado == TipoFiltroAluguelEnum.Concluidos)
                 alugueisSelecionados = repositorioAluguel.SelecionarAlugueisConcluidos();
-          
+
             else if (filtroSelecionado == TipoFiltroAluguelEnum.Pendentes)
                 alugueisSelecionados = repositorioAluguel.SelecionarAlugueisPendentes();
 
-            else 
+            else
                 alugueisSelecionados = repositorioAluguel.SelecionarTodos();
 
             listagemAluguel.AtualizarRegistros(alugueisSelecionados);
