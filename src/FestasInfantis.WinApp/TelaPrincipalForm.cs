@@ -106,10 +106,16 @@ namespace FestasInfantis.WinApp
         {
             controlador.Excluir();
         }
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            if (controlador is IControladorFiltravel controladorFiltravel)
+                controladorFiltravel.Filtrar();
+        }
 
         private void TelaPrincipalForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
+
     }
 }
