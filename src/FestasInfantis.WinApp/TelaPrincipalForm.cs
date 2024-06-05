@@ -1,5 +1,6 @@
 using eAgenda.WinApp.Compartilhado;
 using FestasInfantis.WinApp.ModuloCliente;
+using FestasInfantis.WinApp.ModuloDesconto;
 using FestasInfantis.WinApp.ModuloTema;
 using FestasInfantis.WinApp.ModuloTema.ModuloItens;
 
@@ -12,6 +13,7 @@ namespace FestasInfantis.WinApp
         RepositorioItem repositorioItem;
         RepositorioTema repositorioTema;
         RepositorioCliente repositorioCliente;
+        RepositorioDesconto repositorioDesconto;
 
         public static TelaPrincipalForm Instancia { get; private set; }
 
@@ -22,6 +24,7 @@ namespace FestasInfantis.WinApp
             repositorioItem = new();
             repositorioTema = new();
             repositorioCliente = new();
+            repositorioDesconto = new();
 
             lblTipoCadastro.Text = string.Empty;
             Instancia = this;
@@ -117,5 +120,10 @@ namespace FestasInfantis.WinApp
             Application.Exit();
         }
 
+        private void btnConfigurarDescontos_Click(object sender, EventArgs e)
+        {
+            ControladorDesconto controladorDesconto = new(repositorioDesconto);
+            controladorDesconto.ConfigurarDesconto();
+        }
     }
 }

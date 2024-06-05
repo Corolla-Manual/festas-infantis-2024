@@ -224,13 +224,14 @@
             // btnConfigurarDescontos
             // 
             btnConfigurarDescontos.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnConfigurarDescontos.Enabled = false;
             btnConfigurarDescontos.Image = Properties.Resources.btnConfigurarDescontos;
             btnConfigurarDescontos.ImageScaling = ToolStripItemImageScaling.None;
             btnConfigurarDescontos.ImageTransparentColor = Color.Magenta;
             btnConfigurarDescontos.Name = "btnConfigurarDescontos";
             btnConfigurarDescontos.Padding = new Padding(5);
             btnConfigurarDescontos.Size = new Size(38, 38);
+            btnConfigurarDescontos.ToolTipText = "Configurar o desconto dos alugués";
+            btnConfigurarDescontos.Click += btnConfigurarDescontos_Click;
             // 
             // toolStripSeparator4
             // 
