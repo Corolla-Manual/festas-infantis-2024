@@ -1,13 +1,4 @@
 ﻿using eAgenda.WinApp.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FestasInfantis.WinApp.ModuloCliente
 {
@@ -28,7 +19,7 @@ namespace FestasInfantis.WinApp.ModuloCliente
             grid.Rows.Clear();
 
             foreach (Cliente cliente in clientes)
-                grid.Rows.Add(cliente.Id, cliente.Nome, cliente.Telefone, cliente.Cpf);
+                grid.Rows.Add(cliente.Id, cliente.Nome, cliente.Telefone, cliente.Cpf, cliente.Alugueis.Count);
         }
 
         public int ObterRegistroSelecionado()
@@ -44,6 +35,7 @@ namespace FestasInfantis.WinApp.ModuloCliente
                 new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome" },
                 new DataGridViewTextBoxColumn { DataPropertyName = "Telefone", HeaderText = "Telefone" },
                 new DataGridViewTextBoxColumn { DataPropertyName = "Cpf", HeaderText = "Cpf" },
+                                new DataGridViewTextBoxColumn { DataPropertyName = "NAlugueis", HeaderText = "Nº de Aluguéis" }
                         };
         }
     }

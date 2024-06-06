@@ -12,10 +12,6 @@
         {
             TelaDescontoForm telaDesconto = new TelaDescontoForm();
 
-            if (repositorioDesconto.ExisteDesconto())
-                telaDesconto.Desconto = repositorioDesconto.SelecionarPorId(1);
-
-
             DialogResult resultado = telaDesconto.ShowDialog();
 
             if (resultado != DialogResult.OK)
@@ -23,10 +19,7 @@
 
             Desconto novoDesconto = telaDesconto.Desconto;
 
-            if (repositorioDesconto.ExisteDesconto())
-                repositorioDesconto.Editar(1, novoDesconto);
-
-            repositorioDesconto.Cadastrar(novoDesconto);
+            repositorioDesconto.Editar(novoDesconto);
             TelaPrincipalForm.Instancia.AtualizarRodape($"O desconto foi configurado com sucesso!");
         }
     }

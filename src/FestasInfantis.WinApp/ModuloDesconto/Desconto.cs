@@ -10,8 +10,8 @@ namespace FestasInfantis.WinApp.ModuloDesconto
 
         public Desconto(double descontoUnitario, double descontoMaximo)
         {
-            DescontoUnitario = descontoUnitario;
-            DescontoMaximo = descontoMaximo;
+            DescontoUnitario = 0;
+            DescontoMaximo = 0;
         }
 
         public override List<string> Validar()

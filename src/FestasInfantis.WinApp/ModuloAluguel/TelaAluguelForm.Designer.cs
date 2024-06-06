@@ -458,6 +458,7 @@
             comboBoxSinal.Name = "comboBoxSinal";
             comboBoxSinal.Size = new Size(150, 23);
             comboBoxSinal.TabIndex = 2;
+            comboBoxSinal.SelectedIndexChanged += comboBoxSinal_SelectedIndexChanged;
             // 
             // comboBoxTema
             // 
@@ -466,6 +467,7 @@
             comboBoxTema.Name = "comboBoxTema";
             comboBoxTema.Size = new Size(150, 23);
             comboBoxTema.TabIndex = 3;
+            comboBoxTema.SelectedIndexChanged += comboBoxTema_SelectedIndexChanged;
             // 
             // comboBoxCliente
             // 
@@ -474,6 +476,7 @@
             comboBoxCliente.Name = "comboBoxCliente";
             comboBoxCliente.Size = new Size(150, 23);
             comboBoxCliente.TabIndex = 1;
+            comboBoxCliente.SelectedIndexChanged += comboBoxCliente_SelectedIndexChanged;
             // 
             // label15
             // 
@@ -507,6 +510,7 @@
             // 
             // btnGravarFesta
             // 
+            btnGravarFesta.DialogResult = DialogResult.OK;
             btnGravarFesta.Location = new Point(256, 437);
             btnGravarFesta.Name = "btnGravarFesta";
             btnGravarFesta.Size = new Size(109, 35);
@@ -517,6 +521,7 @@
             // 
             // button3
             // 
+            button3.DialogResult = DialogResult.Cancel;
             button3.Location = new Point(371, 437);
             button3.Name = "button3";
             button3.Size = new Size(109, 35);

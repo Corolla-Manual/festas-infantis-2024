@@ -10,15 +10,15 @@ namespace FestasInfantis.WinApp.ModuloTema
             get { return tema; }
         }
 
-        public TelaTemaForm(RepositorioItem repositorioItem)
+        public TelaTemaForm(List<Item> itens)
         {
             InitializeComponent();
-            CarregarListaItens(repositorioItem);
+            CarregarListaItens(itens);
         }
 
-        private void CarregarListaItens(RepositorioItem repoItem)
+        private void CarregarListaItens(List<Item> itens)
         {
-            foreach (Item it in repoItem.SelecionarTodos())
+            foreach (Item it in itens)
             {
                 if (it.Tema == null)
                     listItens.Items.Add(it);

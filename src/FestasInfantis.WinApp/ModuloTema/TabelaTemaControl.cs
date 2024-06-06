@@ -13,13 +13,11 @@ namespace FestasInfantis.WinApp.ModuloTema.ModuloItens
         }
         public void AtualizarRegistros(List<Tema> temas)
         {
-            string itens = "";
             grid.Rows.Clear();
 
             foreach (Tema t in temas)
             {
-                itens = String.Join(", \n", t.Itens);
-                grid.Rows.Add(t.Id, t.Nome, "R$" + t.Valor, itens);
+                grid.Rows.Add(t.Id, t.Nome, "R$" + t.Valor, t.Itens.Count, t.Alugueis.Count);
             }
         }
         public int ObterRegistroSelecionado()
@@ -34,7 +32,8 @@ namespace FestasInfantis.WinApp.ModuloTema.ModuloItens
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id" },
                 new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "Valor", HeaderText = "Valor" },
-                new DataGridViewTextBoxColumn { DataPropertyName = "Itens", HeaderText = "Itens" }
+                new DataGridViewTextBoxColumn { DataPropertyName = "NItens", HeaderText = "Nº de Itens" },
+                new DataGridViewTextBoxColumn { DataPropertyName = "NAlugueis", HeaderText = "Nº de Aluguéis" }
                        };
         }
     }

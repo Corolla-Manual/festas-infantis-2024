@@ -4,32 +4,31 @@ namespace FestasInfantis.WinApp.ModuloTema
 {
     public partial class TelaAtualizacaoTemaForm : Form
     {
-        private string nomeOriginal;
-        private RepositorioItem repoItem;
+        public string Nome;
+        public List<Item> Itens;
         private Tema tema;
         public Tema Tema
         {
             get { return tema; }
         }
 
-        public TelaAtualizacaoTemaForm(Tema tema, RepositorioItem repositorioItem)
+        public TelaAtualizacaoTemaForm(Tema tema, List<Item> itens)
         {
             InitializeComponent();
             CarregarInformacao(tema);
-            CarregarListaItens(tema, repositorioItem);
-            repoItem = repositorioItem;
+            CarregarListaItens(tema, itens);
+            Itens = itens;
         }
 
         private void CarregarInformacao(Tema tema)
         {
             txtNome.Text = tema.Nome;
-            nomeOriginal = tema.Nome;
         }
 
-        private void CarregarListaItens(Tema tema, RepositorioItem repositorioItem)
+        private void CarregarListaItens(Tema tema, List<Item> itens)
         {
             int i = 0;
-            foreach (Item it in repositorioItem.SelecionarTodos())
+            foreach (Item it in itens)
             {
                 listItens.Items.Add(it);
 
@@ -42,21 +41,8 @@ namespace FestasInfantis.WinApp.ModuloTema
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            string nome = txtNome.Text;
-            List<Item> itens = listItens.CheckedItems.Cast<Item>().ToList();
-            List<Item> ItensCadastrados = new List<Item>();
-            repoItem.LimparDesmarcados(nomeOriginal);
-            tema = new Tema(nome, itens);
-            tema.MarcarItens();
-
-            List<string> erros = tema.Validar();
-
-            if (erros.Count > 0)
-            {
-                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
-
-                DialogResult = DialogResult.None;
-            }
+            Nome = txtNome.Text;
+            Itens = listItens.CheckedItems.Cast<Item>().ToList();
         }
     }
 }

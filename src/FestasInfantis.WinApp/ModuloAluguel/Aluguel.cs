@@ -7,6 +7,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
     public class Aluguel : EntidadeBase
     {
         public bool Status { get; set; }
+        public double ValorPendente { get; set; }
         public int PorcentagemEntrada { get; set; }
         public double PorcentagemDesconto { get; set; }
         public DateTime DataPagamento { get; set; }
@@ -14,7 +15,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         public Tema Tema { get; set; }
         public Festa Festa { get; set; }
 
-        public Aluguel(int porcentagemEntrada, double porcentagemDesconto, Cliente cliente, Tema tema, Festa festa)
+        public Aluguel(int porcentagemEntrada, double porcentagemDesconto, double valorPendente, Cliente cliente, Tema tema, Festa festa)
         {
             Status = false;
             PorcentagemEntrada = porcentagemEntrada;
@@ -22,6 +23,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             Cliente = cliente;
             Tema = tema;
             Festa = festa;
+            ValorPendente = valorPendente;
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
@@ -46,8 +48,8 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         public override string ToString()
         {
-            return $"Status: {Status}, Porcentagem de Entrada: {PorcentagemEntrada}, Porcentagem de Desconto: {PorcentagemDesconto}," +
-                $" Data de pagamento: {DataPagamento}, Cliente: {Cliente}, Tema: {Tema}";
+            return $"Id: {Id}";
         }
+
     }
 }

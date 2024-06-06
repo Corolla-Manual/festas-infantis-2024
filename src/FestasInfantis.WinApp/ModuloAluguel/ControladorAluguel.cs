@@ -35,20 +35,25 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         public override void Adicionar()
         {
-            TelaAluguelForm telaAluguel = new TelaAluguelForm(clientes, temas, desconto);
+            if (!ListasVazias())
+            {
+                TelaAluguelForm telaAluguel = new TelaAluguelForm(clientes, temas, desconto);
 
-            DialogResult resultado = telaAluguel.ShowDialog();
+                DialogResult resultado = telaAluguel.ShowDialog();
 
-            if (resultado != DialogResult.OK)
-                return;
+                if (resultado != DialogResult.OK)
+                    return;
 
-            Aluguel novoAluguel = telaAluguel.Aluguel;
+                Aluguel novoAluguel = telaAluguel.Aluguel;
 
-            repositorioAluguel.Cadastrar(novoAluguel);
+                repositorioAluguel.Cadastrar(novoAluguel);
 
-            CarregarAlugueis();
+                repositorioAluguel.AdicionarAluguelNasDependencias(novoAluguel);
 
-            TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{novoAluguel.Id}\" foi criado com sucesso!");
+                CarregarAlugueis();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{novoAluguel.Id}\" foi criado com sucesso!");
+            }
         }
 
         public override void Editar()
@@ -78,6 +83,8 @@ namespace FestasInfantis.WinApp.ModuloAluguel
                 return;
 
             Aluguel aluguelEditado = telaAluguel.Aluguel;
+
+            repositorioAluguel.EditarAluguelNasDependencias(aluguelSelecionado, aluguelEditado);
 
             repositorioAluguel.Editar(idSelecionado, aluguelEditado);
 
@@ -114,7 +121,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
                 return;
 
             repositorioAluguel.Excluir(aluguelSelecionado.Id);
-
+            repositorioAluguel.RemoverAluguelNasDependencias(aluguelSelecionado);
             CarregarAlugueis();
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{aluguelSelecionado.Id}\" foi criado com sucesso!");
@@ -164,6 +171,15 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             tabelaAluguel.AtualizarRegistros(alugueis);
 
             return tabelaAluguel;
+        }
+        private bool ListasVazias()
+        {
+            if (clientes.Count == 0 || temas.Count == 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape("Não é possível cadastrar um aluguel sem um \"Cliente\" e um \"Tema\"!");
+                return true;
+            }
+            return false;
         }
     }
 }

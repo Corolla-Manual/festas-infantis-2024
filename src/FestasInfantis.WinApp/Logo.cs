@@ -11,6 +11,7 @@
         private void ConfigurarPlayer()
         {
             wmVideo.uiMode = "none";
+            wmVideo.Ctlenabled = false;
             string[] test = Directory.GetCurrentDirectory().Split("bin");
             wmVideo.URL = test[0] + "\\Resources\\Logo.mp4";
 

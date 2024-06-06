@@ -17,8 +17,8 @@ namespace FestasInfantis.WinApp.ModuloAluguel
                 comboBoxTema.SelectedItem = value.Tema;
                 comboBoxSinal.SelectedItem = value.PorcentagemEntrada;
                 datetimeDataFesta.Value = value.Festa.DataFesta;
-                txtHoraInicio.Text = value.Festa.HoraInicio.ToString("HH:MM");
-                txtHoraTermino.Text = value.Festa.HoraTermino.ToString("HH:MM");
+                txtHoraInicio.Text = value.Festa.HoraInicio.ToString("HH:mm");
+                txtHoraTermino.Text = value.Festa.HoraTermino.ToString("HH:mm");
                 txtCidade.Text = value.Festa.Endereco.Cidade;
                 txtEstado.Text = value.Festa.Endereco.Estado;
                 txtRua.Text = value.Festa.Endereco.Rua;
@@ -34,8 +34,8 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         public TelaAluguelForm(List<Cliente> clientes, List<Tema> temas, Desconto descontoConfigurado)
         {
             InitializeComponent();
-            CarregarComboBox(clientes, temas);
             desconto = descontoConfigurado;
+            CarregarComboBox(clientes, temas);
             CarregarDadosPagamento();
         }
 
@@ -48,7 +48,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             double valorTotalTema = temaSelecionado.CalcularTotal();
             double descontoTotal = desconto.CalcularPorcentagem(clienteSelecionado);
             double valorTemaComDesconto = (valorTotalTema * (1 - (descontoTotal / 100)));
-            double valorEntrada = valorTemaComDesconto * (entradaSelecionada / 100);
+            double valorEntrada = valorTemaComDesconto * ((double)entradaSelecionada / 100);
 
             txtPorcentagemDesconto.Text = descontoTotal + "";
             txtValorTema.Text = valorTotalTema + "";
@@ -85,6 +85,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             string bairro = txtBairro.Text;
             string rua = txtRua.Text;
             int numero = int.Parse(txtNumero.Text);
+            double valorPendente = double.Parse(txtValorPendente.Text);
 
             Cliente cliente = (Cliente)comboBoxCliente.SelectedItem;
 
@@ -96,7 +97,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
             Festa festa = new Festa(endereco, dataFesta, DateTime.Parse(horaInicio), DateTime.Parse(horaTermino));
 
-            aluguel = new Aluguel(entrada, desconto.CalcularPorcentagem(cliente), cliente, tema, festa);
+            aluguel = new Aluguel(entrada, desconto.CalcularPorcentagem(cliente), valorPendente, cliente, tema, festa);
 
 
             List<string> erros = endereco.Validar();
@@ -106,6 +107,36 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
                 DialogResult = DialogResult.None;
             }
+        }
+
+        private void comboBoxCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ControleAtualizarCombBox())
+            {
+                CarregarDadosPagamento();
+            }
+        }
+
+        private void comboBoxTema_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ControleAtualizarCombBox())
+            {
+                CarregarDadosPagamento();
+            }
+        }
+
+        private void comboBoxSinal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ControleAtualizarCombBox())
+            {
+                CarregarDadosPagamento();
+            }
+        }
+        private bool ControleAtualizarCombBox()
+        {
+            return (comboBoxTema.SelectedItem != null
+                && comboBoxCliente.SelectedItem != null
+                && comboBoxSinal.SelectedItem != null) ? true : false;
         }
     }
 }

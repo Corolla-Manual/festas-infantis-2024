@@ -19,8 +19,12 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             grid.Rows.Clear();
 
             foreach (Aluguel aluguel in alugueis)
-                grid.Rows.Add(aluguel.Id, aluguel.Status, aluguel.PorcentagemEntrada, aluguel.PorcentagemDesconto,
-                    aluguel.DataPagamento, aluguel.Cliente, aluguel.Tema);
+                grid.Rows.Add(
+                    aluguel.Id, aluguel.Cliente, aluguel.Tema,
+                    aluguel.PorcentagemEntrada + "%", aluguel.PorcentagemDesconto + "%",
+                    aluguel.Status ? "Concluído" : "Em Aberto",
+                    aluguel.DataPagamento == DateTime.MinValue ? "" : aluguel.DataPagamento
+                    );
         }
 
         public int ObterRegistroSelecionado()
@@ -33,12 +37,13 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             return new DataGridViewColumn[]
                         {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id" },
-                new DataGridViewTextBoxColumn { DataPropertyName = "Status", HeaderText = "Status" },
-                new DataGridViewTextBoxColumn { DataPropertyName = "Porcentagem de Entrada", HeaderText = "Porcentagem de Entrada" },
-                new DataGridViewTextBoxColumn { DataPropertyName = "Porcentagem de Desconto", HeaderText = "Porcentagem de Desconto" },
-                new DataGridViewTextBoxColumn { DataPropertyName = "Data de Pagamento", HeaderText = "Data de Pagamento" },
                 new DataGridViewTextBoxColumn { DataPropertyName = "Cliente", HeaderText = "Cliente" },
                 new DataGridViewTextBoxColumn { DataPropertyName = "Tema", HeaderText = "Tema" },
+                new DataGridViewTextBoxColumn { DataPropertyName = "Porcentagem de Entrada", HeaderText = "Porcentagem de Entrada" },
+                new DataGridViewTextBoxColumn { DataPropertyName = "Porcentagem de Desconto", HeaderText = "Porcentagem de Desconto" },
+                new DataGridViewTextBoxColumn { DataPropertyName = "Status", HeaderText = "Status" },
+                new DataGridViewTextBoxColumn { DataPropertyName = "Data de Pagamento", HeaderText = "Data de Pagamento" },
+
                 //new DataGridViewTextBoxColumn { DataPropertyName = "Festa", HeaderText = "Festa" },
                         };
         }

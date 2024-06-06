@@ -1,18 +1,25 @@
-﻿using eAgenda.ConsoleApp.Compartilhado;
-
-namespace FestasInfantis.WinApp.ModuloDesconto
+﻿namespace FestasInfantis.WinApp.ModuloDesconto
 {
-    public class RepositorioDesconto : RepositorioBase<Desconto>
+    public class RepositorioDesconto
     {
+        private Desconto desconto;
+
+        public RepositorioDesconto()
+        {
+            desconto = new(0, 0);
+        }
+
         public bool ExisteDesconto()
         {
-            return registros.Count > 0;
+            return desconto != null;
         }
         public Desconto RetornaDesconto()
         {
-            if (!ExisteDesconto())
-                return null;
-            return registros[0];
+            return desconto;
+        }
+        public void Editar(Desconto novoDesconto)
+        {
+            desconto = novoDesconto;
         }
     }
 }
