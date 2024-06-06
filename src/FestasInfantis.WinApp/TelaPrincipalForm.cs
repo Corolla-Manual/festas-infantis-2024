@@ -87,6 +87,8 @@ namespace FestasInfantis.WinApp
             btnFiltrar.Enabled = controladorSelecionado is IControladorFiltravel;
             btnVisualizarAlugueis.Enabled = controladorSelecionado is IControladorAluguelVisualizavel;
 
+            btnConcluirAluguel.Enabled = controladorSelecionado is IControladorConclusaoAluguel;
+
             ConfigurarToolTips(controladorSelecionado);
         }
 
@@ -101,6 +103,9 @@ namespace FestasInfantis.WinApp
 
             if (controladorSelecionado is IControladorAluguelVisualizavel controladorAluguelVisualizavel)
                 btnVisualizarAlugueis.ToolTipText = controladorAluguelVisualizavel.ToolTipVisualizarAluguel;
+
+            if (controladorSelecionado is IControladorConclusaoAluguel controladorConclusaoAluguel)
+                btnConcluirAluguel.ToolTipText = controladorConclusaoAluguel.ToolTipConclusaoAluguel;
         }
 
         private void ConfigurarListagem(ControladorBase controladorSelecionado)
@@ -147,6 +152,12 @@ namespace FestasInfantis.WinApp
         {
             if (controlador is IControladorAluguelVisualizavel controladorAluguelVisualizavel)
                 controladorAluguelVisualizavel.VisualizarAluguel();
+        }
+
+        private void btnConcluirAluguel_Click(object sender, EventArgs e)
+        {
+            if (controlador is IControladorConclusaoAluguel controladorConclusaoAluguel)
+                controladorConclusaoAluguel.Concluir();
         }
     }
 }

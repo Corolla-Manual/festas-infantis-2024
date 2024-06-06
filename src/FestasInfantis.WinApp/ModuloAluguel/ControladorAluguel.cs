@@ -5,7 +5,7 @@ using FestasInfantis.WinApp.ModuloTema;
 
 namespace FestasInfantis.WinApp.ModuloAluguel
 {
-    public class ControladorAluguel : ControladorBase, IControladorFiltravel
+    public class ControladorAluguel : ControladorBase, IControladorFiltravel, IControladorConclusaoAluguel
     {
         private ListagemAluguelControl listagemAluguel;
         private RepositorioAluguel repositorioAluguel;
@@ -32,6 +32,8 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         public override string ToolTipExcluir { get { return "Excluir um Aluguel existente"; } }
 
         public string ToolTipFiltrar { get { return "Filtrar Aluguéis"; } }
+
+        public string ToolTipConclusaoAluguel { get { return "Concluir Aluguéis"; } }
 
         public override void Adicionar()
         {
@@ -152,6 +154,11 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             listagemAluguel.AtualizarRegistros(alugueisSelecionados);
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueisSelecionados.Count} registros...");
+        }
+
+        public void Concluir()
+        {
+            throw new NotImplementedException();
         }
 
         private void CarregarAlugueis()
