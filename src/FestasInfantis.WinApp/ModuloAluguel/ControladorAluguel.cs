@@ -13,6 +13,8 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         private List<Cliente> clientes;
         private List<Tema> temas;
         private Desconto desconto;
+        private Pagamento pagamento;
+        private Aluguel aluguel;
 
         public ControladorAluguel(RepositorioAluguel repAluguel, RepositorioCliente repoCliente,
             RepositorioTema repoTema, RepositorioDesconto repoDesconto)
@@ -158,7 +160,20 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         public void Concluir()
         {
-            throw new NotImplementedException();
+            int idSelecionado = tabelaAluguel.ObterRegistroSelecionado();
+
+            Aluguel aluguelSelecionado = repositorioAluguel.SelecionarPorId(idSelecionado);
+
+            TelaConclusaoAluguelForm telaConclusao = new TelaConclusaoAluguelForm(aluguelSelecionado);
+
+            DialogResult resultado = telaConclusao.ShowDialog();
+
+            if (resultado != DialogResult.OK)
+                return;
+
+            CarregarAlugueis();
+
+            TelaPrincipalForm.Instancia.AtualizarRodape($"O Aluguel de ID: {aluguelSelecionado.Id} foi concluído com sucesso");
         }
 
         private void CarregarAlugueis()
@@ -175,7 +190,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
             List<Aluguel> alugueis = repositorioAluguel.SelecionarTodos();
 
-            tabelaAluguel.AtualizarRegistros(alugueis);
+            listagemAluguel.AtualizarRegistros(alugueis);
 
             return tabelaAluguel;
         }
