@@ -12,6 +12,8 @@
         {
             TelaDescontoForm telaDesconto = new TelaDescontoForm();
 
+            telaDesconto.Desconto = repositorioDesconto.RetornaDesconto();
+
             DialogResult resultado = telaDesconto.ShowDialog();
 
             if (resultado != DialogResult.OK)
@@ -19,7 +21,8 @@
 
             Desconto novoDesconto = telaDesconto.Desconto;
 
-            repositorioDesconto.Editar(novoDesconto);
+            repositorioDesconto.Cadastrar(novoDesconto);
+
             TelaPrincipalForm.Instancia.AtualizarRodape($"O desconto foi configurado com sucesso!");
         }
     }

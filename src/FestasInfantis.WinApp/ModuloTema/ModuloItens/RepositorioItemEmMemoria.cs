@@ -2,9 +2,9 @@
 
 namespace FestasInfantis.WinApp.ModuloTema.ModuloItens
 {
-    public class RepositorioItem : RepositorioBase<Item>
+    public class RepositorioItemEmMemoria : RepositorioBaseEmMemoria<Item>, IRepositorioItem
     {
-        internal void LimparDesmarcados(string nome)
+        public void LimparDesmarcados(string nome)
         {
             foreach (Item item in registros)
             {

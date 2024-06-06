@@ -10,6 +10,10 @@ namespace FestasInfantis.WinApp.ModuloCliente
         public string Cpf { get; set; }
         public List<Aluguel> Alugueis { get; set; }
 
+        public Cliente()
+        {
+
+        }
         public Cliente(string nome, string telefone, string cpf)
         {
             Nome = nome;

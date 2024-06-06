@@ -7,6 +7,10 @@
         public DateTime HoraInicio { get; set; }
         public DateTime HoraTermino { get; set; }
 
+        public Festa()
+        {
+
+        }
         public Festa(Endereco endereco, DateTime dataFesta, DateTime horaInicio, DateTime horaTermino)
         {
             Endereco = endereco;

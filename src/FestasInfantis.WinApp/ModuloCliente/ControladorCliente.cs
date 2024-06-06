@@ -6,9 +6,9 @@ namespace FestasInfantis.WinApp.ModuloCliente
     public class ControladorCliente : ControladorBase, IControladorAluguelVisualizavel
     {
         private TabelaClienteControl tabelaCliente;
-        private RepositorioCliente repositorioCliente;
+        private IRepositorioCliente repositorioCliente;
 
-        public ControladorCliente(RepositorioCliente repositorio)
+        public ControladorCliente(IRepositorioCliente repositorio)
         {
             repositorioCliente = repositorio;
         }

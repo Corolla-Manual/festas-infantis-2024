@@ -1,14 +1,37 @@
-﻿using eAgenda.ConsoleApp.Compartilhado;
+﻿using FestasInfantis.WinApp.Compartilhado;
+using FestasInfantis.WinApp.ModuloCliente;
+using FestasInfantis.WinApp.ModuloTema;
 
 namespace FestasInfantis.WinApp.ModuloAluguel
 {
-    public class RepositorioAluguel : RepositorioBase<Aluguel>
+    internal class RepositorioAluguelEmArquivo : RepositorioBaseEmArquivo<Aluguel>, IRepositorioAluguel
     {
+        public RepositorioAluguelEmArquivo(ContextoDados contexto) : base(contexto)
+        {
+            if (contexto.Alugueis.Any())
+                contadorId = contexto.Alugueis.Max(i => i.Id) + 1;
+        }
+        protected override List<Aluguel> ObterRegistros()
+        {
+            return contexto.Alugueis;
+        }
+        public override bool Excluir(int id)
+        {
+            Aluguel aluguel = SelecionarPorId(id);
+
+            Cliente clienteRelacionados = contexto.Clientes.Find(x => x.Alugueis.Contains(aluguel));
+            clienteRelacionados.Alugueis.Remove(aluguel);
+
+            Tema temaRelacionado = contexto.Temas.Find(x => x.Alugueis.Contains(aluguel));
+            temaRelacionado.Alugueis.Remove(aluguel);
+
+            return base.Excluir(id);
+        }
         public List<Aluguel> SelecionarAlugueisConcluidos()
         {
             List<Aluguel> alugueisConcluidos = new List<Aluguel>();
 
-            foreach (Aluguel alguel in registros)
+            foreach (Aluguel alguel in contexto.Alugueis)
             {
                 if (alguel.Status == true)
                     alugueisConcluidos.Add(alguel);
@@ -21,7 +44,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         {
             List<Aluguel> alugueisPendentes = new List<Aluguel>();
 
-            foreach (Aluguel alguel in registros)
+            foreach (Aluguel alguel in contexto.Alugueis)
             {
                 if (alguel.Status == false)
                     alugueisPendentes.Add(alguel);

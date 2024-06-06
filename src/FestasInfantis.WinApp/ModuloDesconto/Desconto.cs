@@ -8,10 +8,14 @@ namespace FestasInfantis.WinApp.ModuloDesconto
         public double DescontoUnitario { get; set; }
         public double DescontoMaximo { get; set; }
 
+        public Desconto()
+        {
+
+        }
         public Desconto(double descontoUnitario, double descontoMaximo)
         {
-            DescontoUnitario = 0;
-            DescontoMaximo = 0;
+            DescontoUnitario = descontoUnitario;
+            DescontoMaximo = descontoMaximo;
         }
 
         public override List<string> Validar()
@@ -25,6 +29,9 @@ namespace FestasInfantis.WinApp.ModuloDesconto
         }
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
+            Desconto d = (Desconto)novoRegistro;
+            DescontoUnitario = d.DescontoUnitario;
+            DescontoMaximo = d.DescontoMaximo;
         }
         public double CalcularPorcentagem(Cliente cliente)
         {

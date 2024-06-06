@@ -13,9 +13,17 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             set
             {
                 txtValorEntrada.Text = value.Id.ToString();
+
+                if (value.Cliente == null)
+                    comboBoxCliente.SelectedIndex = 0;
                 comboBoxCliente.SelectedItem = value.Cliente;
+
+                if (value.Tema == null)
+                    comboBoxTema.SelectedIndex = 0;
                 comboBoxTema.SelectedItem = value.Tema;
+
                 comboBoxSinal.SelectedItem = value.PorcentagemEntrada;
+
                 datetimeDataFesta.Value = value.Festa.DataFesta;
                 txtHoraInicio.Text = value.Festa.HoraInicio.ToString("HH:mm");
                 txtHoraTermino.Text = value.Festa.HoraTermino.ToString("HH:mm");

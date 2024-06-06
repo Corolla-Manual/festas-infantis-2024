@@ -1,0 +1,84 @@
+{
+  "$id": "1",
+  "Itens": {
+    "$id": "2",
+    "$values": [
+      {
+        "$id": "3",
+        "Descricao": "i1",
+        "Valor": 10,
+        "Tema": "tema 1",
+        "Id": 1
+      }
+    ]
+  },
+  "Temas": {
+    "$id": "4",
+    "$values": [
+      {
+        "$id": "5",
+        "Nome": "tema 1",
+        "Valor": 10,
+        "Itens": {
+          "$id": "6",
+          "$values": [
+            {
+              "$ref": "3"
+            }
+          ]
+        },
+        "Alugueis": {
+          "$id": "7",
+          "$values": [
+            {
+              "$id": "8",
+              "Status": false,
+              "ValorPendente": 6,
+              "PorcentagemEntrada": 40,
+              "PorcentagemDesconto": 0,
+              "DataPagamento": "0001-01-01T00:00:00",
+              "Cliente": null,
+              "Tema": {
+                "$ref": "5"
+              },
+              "Festa": {
+                "$id": "9",
+                "Endereco": {
+                  "$id": "10",
+                  "Rua": "celio",
+                  "Numero": 111,
+                  "Bairro": "francisco",
+                  "Cidade": "lages",
+                  "Estado": "sc"
+                },
+                "DataFesta": "2024-06-06T20:30:17.7653794-03:00",
+                "HoraInicio": "2024-06-06T10:30:00",
+                "HoraTermino": "2024-06-06T11:30:00"
+              },
+              "Id": 1
+            }
+          ]
+        },
+        "Id": 1
+      }
+    ]
+  },
+  "Clientes": {
+    "$id": "11",
+    "$values": []
+  },
+  "Alugueis": {
+    "$id": "12",
+    "$values": [
+      {
+        "$ref": "8"
+      }
+    ]
+  },
+  "Desconto": {
+    "$id": "13",
+    "DescontoUnitario": 3,
+    "DescontoMaximo": 50,
+    "Id": 0
+  }
+}

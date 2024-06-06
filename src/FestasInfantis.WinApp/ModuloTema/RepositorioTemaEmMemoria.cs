@@ -2,7 +2,7 @@
 
 namespace FestasInfantis.WinApp.ModuloTema
 {
-    public class RepositorioTema : RepositorioBase<Tema>
+    public class RepositorioTemaEmMemoria : RepositorioBaseEmMemoria<Tema>, IRepositorioTema
     {
     }
 }

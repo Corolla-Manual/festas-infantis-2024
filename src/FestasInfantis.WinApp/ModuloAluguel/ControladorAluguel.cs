@@ -8,14 +8,14 @@ namespace FestasInfantis.WinApp.ModuloAluguel
     public class ControladorAluguel : ControladorBase, IControladorFiltravel, IControladorConclusaoAluguel
     {
         private ListagemAluguelControl listagemAluguel;
-        private RepositorioAluguel repositorioAluguel;
+        private IRepositorioAluguel repositorioAluguel;
         private TabelaAluguelControl tabelaAluguel;
         private List<Cliente> clientes;
         private List<Tema> temas;
         private Desconto desconto;
 
-        public ControladorAluguel(RepositorioAluguel repAluguel, RepositorioCliente repoCliente,
-            RepositorioTema repoTema, RepositorioDesconto repoDesconto)
+        public ControladorAluguel(IRepositorioAluguel repAluguel, IRepositorioCliente repoCliente,
+            IRepositorioTema repoTema, RepositorioDesconto repoDesconto)
         {
             repositorioAluguel = repAluguel;
             clientes = repoCliente.SelecionarTodos();
@@ -60,39 +60,42 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
         public override void Editar()
         {
-            TelaAluguelForm telaAluguel = new TelaAluguelForm(clientes, temas, desconto);
-
-            int idSelecionado = tabelaAluguel.ObterRegistroSelecionado();
-
-            Aluguel aluguelSelecionado = repositorioAluguel.SelecionarPorId(idSelecionado);
-
-            if (aluguelSelecionado == null)
+            if (!ListasVazias())
             {
-                MessageBox.Show(
-                    "Não é possivel realizar esta ação sem selecionar algo",
-                    "Aviso",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                    );
-                return;
+                TelaAluguelForm telaAluguel = new TelaAluguelForm(clientes, temas, desconto);
+
+                int idSelecionado = tabelaAluguel.ObterRegistroSelecionado();
+
+                Aluguel aluguelSelecionado = repositorioAluguel.SelecionarPorId(idSelecionado);
+
+                if (aluguelSelecionado == null)
+                {
+                    MessageBox.Show(
+                        "Não é possivel realizar esta ação sem selecionar algo",
+                        "Aviso",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                        );
+                    return;
+                }
+
+                telaAluguel.Aluguel = aluguelSelecionado;
+
+                DialogResult resultado = telaAluguel.ShowDialog();
+
+                if (resultado != DialogResult.OK)
+                    return;
+
+                Aluguel aluguelEditado = telaAluguel.Aluguel;
+
+                repositorioAluguel.EditarAluguelNasDependencias(aluguelSelecionado, aluguelEditado);
+
+                repositorioAluguel.Editar(idSelecionado, aluguelEditado);
+
+                CarregarAlugueis();
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{aluguelEditado.Id}\" foi criado com sucesso!");
             }
-
-            telaAluguel.Aluguel = aluguelSelecionado;
-
-            DialogResult resultado = telaAluguel.ShowDialog();
-
-            if (resultado != DialogResult.OK)
-                return;
-
-            Aluguel aluguelEditado = telaAluguel.Aluguel;
-
-            repositorioAluguel.EditarAluguelNasDependencias(aluguelSelecionado, aluguelEditado);
-
-            repositorioAluguel.Editar(idSelecionado, aluguelEditado);
-
-            CarregarAlugueis();
-
-            TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{aluguelEditado.Id}\" foi criado com sucesso!");
         }
 
         public override void Excluir()

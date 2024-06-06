@@ -21,7 +21,9 @@
         {
             double porcenUnitaria = (double)nudPorcentagemUnitaria.Value;
             double porcenMaxima = (double)nudPorcentagemMaxima.Value;
+
             desconto = new(porcenUnitaria, porcenMaxima);
+
 
             List<string> erros = desconto.Validar();
 

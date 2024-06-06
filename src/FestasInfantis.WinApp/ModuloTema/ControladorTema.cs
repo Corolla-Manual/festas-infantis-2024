@@ -5,11 +5,11 @@ namespace FestasInfantis.WinApp.ModuloTema
 {
     internal class ControladorTema : ControladorBase
     {
-        private RepositorioTema repositorioTema;
-        private RepositorioItem repositorioItem;
+        private IRepositorioTema repositorioTema;
+        private IRepositorioItem repositorioItem;
         private TabelaTemaControl tabelaTema;
 
-        public ControladorTema(RepositorioTema repoTema, RepositorioItem repoItem)
+        public ControladorTema(IRepositorioTema repoTema, IRepositorioItem repoItem)
         {
             repositorioTema = repoTema;
             repositorioItem = repoItem;
@@ -112,6 +112,11 @@ namespace FestasInfantis.WinApp.ModuloTema
         private void CarregarTemas()
         {
             List<Tema> Temas = repositorioTema.SelecionarTodos();
+
+            foreach (Tema tema in Temas)
+            {
+                tema.Valor = tema.CalcularTotal();
+            }
 
             tabelaTema.AtualizarRegistros(Temas);
         }

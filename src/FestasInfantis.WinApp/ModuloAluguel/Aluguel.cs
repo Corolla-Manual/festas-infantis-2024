@@ -15,6 +15,10 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         public Tema Tema { get; set; }
         public Festa Festa { get; set; }
 
+        public Aluguel()
+        {
+
+        }
         public Aluguel(int porcentagemEntrada, double porcentagemDesconto, double valorPendente, Cliente cliente, Tema tema, Festa festa)
         {
             Status = false;

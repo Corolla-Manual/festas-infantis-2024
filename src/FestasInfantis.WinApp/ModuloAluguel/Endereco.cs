@@ -8,6 +8,10 @@
         public string Cidade { get; set; }
         public string Estado { get; set; }
 
+        public Endereco()
+        {
+
+        }
         public Endereco(string rua, int numero, string bairro, string cidade, string estado)
         {
             Rua = rua;

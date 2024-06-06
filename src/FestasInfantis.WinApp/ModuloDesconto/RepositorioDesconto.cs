@@ -1,12 +1,16 @@
-﻿namespace FestasInfantis.WinApp.ModuloDesconto
+﻿using FestasInfantis.WinApp.Compartilhado;
+
+namespace FestasInfantis.WinApp.ModuloDesconto
 {
     public class RepositorioDesconto
     {
         private Desconto desconto;
+        private ContextoDados contextoDados;
 
-        public RepositorioDesconto()
+        public RepositorioDesconto(ContextoDados contexto)
         {
-            desconto = new(0, 0);
+            desconto = contexto.Desconto;
+            contextoDados = contexto;
         }
 
         public bool ExisteDesconto()
@@ -17,9 +21,12 @@
         {
             return desconto;
         }
-        public void Editar(Desconto novoDesconto)
+        public void Cadastrar(Desconto descontoNovo)
         {
-            desconto = novoDesconto;
+            desconto.AtualizarRegistro(descontoNovo);
+
+            contextoDados.Gravar();
         }
+
     }
 }

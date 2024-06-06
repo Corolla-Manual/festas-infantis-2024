@@ -6,28 +6,31 @@ using FestasInfantis.WinApp.ModuloDesconto;
 using FestasInfantis.WinApp.ModuloTema;
 using FestasInfantis.WinApp.ModuloTema.ModuloItens;
 
+
 namespace FestasInfantis.WinApp
 {
     public partial class TelaPrincipalForm : Form
     {
         ControladorBase controlador;
+        ContextoDados contexto;
 
-        RepositorioItem repositorioItem;
-        RepositorioTema repositorioTema;
-        RepositorioCliente repositorioCliente;
+        IRepositorioItem repositorioItem;
+        IRepositorioTema repositorioTema;
+        IRepositorioCliente repositorioCliente;
         RepositorioDesconto repositorioDesconto;
-        RepositorioAluguel repositorioAluguel;
+        IRepositorioAluguel repositorioAluguel;
         public static TelaPrincipalForm Instancia { get; private set; }
 
         public TelaPrincipalForm()
         {
             InitializeComponent();
+            contexto = new(carregarDados: true);
 
-            repositorioItem = new();
-            repositorioTema = new();
-            repositorioCliente = new();
-            repositorioAluguel = new();
-            repositorioDesconto = new();
+            repositorioItem = new RepositorioItemEmArquivo(contexto);
+            repositorioTema = new RepositorioTemaEmArquivo(contexto);
+            repositorioCliente = new RepositorioClienteEmArquivo(contexto);
+            repositorioAluguel = new RepositorioAluguelEmArquivo(contexto);
+            repositorioDesconto = new(contexto);
 
             lblTipoCadastro.Text = string.Empty;
             Instancia = this;

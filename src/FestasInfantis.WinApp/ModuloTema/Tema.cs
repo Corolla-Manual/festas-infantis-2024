@@ -13,7 +13,10 @@ namespace FestasInfantis.WinApp.ModuloTema
             Valor = CalcularTotal();
             Alugueis = new List<Aluguel>();
         }
+        public Tema()
+        {
 
+        }
         public string Nome { get; set; }
         public double Valor { get; set; }
         public List<Item> Itens { get; set; }

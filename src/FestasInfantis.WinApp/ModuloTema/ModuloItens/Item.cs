@@ -12,7 +12,10 @@ namespace FestasInfantis.WinApp.ModuloTema.ModuloItens
             Descricao = descricao;
             Valor = valor;
         }
+        public Item()
+        {
 
+        }
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Item item = (Item)novoRegistro;
