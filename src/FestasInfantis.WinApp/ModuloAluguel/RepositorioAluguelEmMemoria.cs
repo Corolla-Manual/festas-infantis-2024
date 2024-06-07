@@ -56,10 +56,6 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             }
             aluguel.Tema.Alugueis.Remove(aluguelRemover);
         }
-        public void EditarAluguelNasDependencias(Aluguel aluguelSelecionado, Aluguel aluguelEditado)
-        {
-            RemoverAluguelNasDependencias(aluguelSelecionado);
-            AdicionarAluguelNasDependencias(aluguelEditado);
-        }
+
     }
 }
