@@ -7,14 +7,11 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 {
     public class ControladorAluguel : ControladorBase, IControladorFiltravel, IControladorConclusaoAluguel
     {
-        private ListagemAluguelControl listagemAluguel;
         private IRepositorioAluguel repositorioAluguel;
         private TabelaAluguelControl tabelaAluguel;
         private List<Cliente> clientes;
         private List<Tema> temas;
         private Desconto desconto;
-        private Pagamento pagamento;
-        private Aluguel aluguel;
 
         public ControladorAluguel(IRepositorioAluguel repAluguel, IRepositorioCliente repoCliente,
             IRepositorioTema repoTema, RepositorioDesconto repoDesconto)
@@ -52,8 +49,6 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
                 repositorioAluguel.Cadastrar(novoAluguel);
 
-                repositorioAluguel.AdicionarAluguelNasDependencias(novoAluguel);
-
                 CarregarAlugueis();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{novoAluguel.Id}\" foi criado com sucesso!");
@@ -81,6 +76,17 @@ namespace FestasInfantis.WinApp.ModuloAluguel
                     return;
                 }
 
+                if (aluguelSelecionado.Status)
+                {
+                    MessageBox.Show(
+                       "Não é possivel editar um aluguel que já foi concluído!",
+                       "Aviso",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Error
+                       );
+                    return;
+                }
+
                 telaAluguel.Aluguel = aluguelSelecionado;
 
                 DialogResult resultado = telaAluguel.ShowDialog();
@@ -90,9 +96,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
                 Aluguel aluguelEditado = telaAluguel.Aluguel;
 
-                repositorioAluguel.EditarAluguelNasDependencias(aluguelSelecionado, aluguelEditado);
-
-                repositorioAluguel.Editar(idSelecionado, aluguelEditado);
+                repositorioAluguel.Editar(aluguelSelecionado.Id, aluguelEditado);
 
                 CarregarAlugueis();
 
@@ -128,7 +132,6 @@ namespace FestasInfantis.WinApp.ModuloAluguel
                 return;
 
             repositorioAluguel.Excluir(aluguelSelecionado.Id);
-            repositorioAluguel.RemoverAluguelNasDependencias(aluguelSelecionado);
             CarregarAlugueis();
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{aluguelSelecionado.Id}\" foi criado com sucesso!");
@@ -156,7 +159,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             else
                 alugueisSelecionados = repositorioAluguel.SelecionarTodos();
 
-            listagemAluguel.AtualizarRegistros(alugueisSelecionados);
+            tabelaAluguel.AtualizarRegistros(alugueisSelecionados);
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {alugueisSelecionados.Count} registros...");
         }
@@ -173,6 +176,11 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
             if (resultado != DialogResult.OK)
                 return;
+
+
+            Aluguel aluguelEditado = telaConclusao.Aluguel;
+
+            repositorioAluguel.Editar(aluguelSelecionado.Id, aluguelEditado);
 
             CarregarAlugueis();
 
@@ -193,7 +201,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
             List<Aluguel> alugueis = repositorioAluguel.SelecionarTodos();
 
-            listagemAluguel.AtualizarRegistros(alugueis);
+            tabelaAluguel.AtualizarRegistros(alugueis);
 
             return tabelaAluguel;
         }

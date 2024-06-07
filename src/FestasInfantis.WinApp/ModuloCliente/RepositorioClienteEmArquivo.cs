@@ -19,8 +19,8 @@ namespace FestasInfantis.WinApp.ModuloCliente
             Cliente cliente = SelecionarPorId(id);
 
             Aluguel aluguelRelacionados = contexto.Alugueis.Find(x => x.Cliente == cliente);
-
-            aluguelRelacionados.Cliente = null;
+            if (aluguelRelacionados != null)
+                aluguelRelacionados.Cliente = null;
 
             return base.Excluir(id);
         }

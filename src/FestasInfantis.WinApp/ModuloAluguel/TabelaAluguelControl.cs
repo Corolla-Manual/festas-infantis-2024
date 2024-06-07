@@ -21,9 +21,9 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             foreach (Aluguel aluguel in alugueis)
                 grid.Rows.Add(
                     aluguel.Id, aluguel.Cliente, aluguel.Tema,
-                    aluguel.PorcentagemEntrada + "%", aluguel.PorcentagemDesconto + "%",
+                    aluguel.Pagamento.PorcentagemEntrada + "%", aluguel.Pagamento.PorcentagemDesconto + "%",
                     aluguel.Status ? "Concluído" : "Em Aberto",
-                    aluguel.DataPagamento == DateTime.MinValue ? "" : aluguel.DataPagamento
+                    aluguel.DataPagamento == DateTime.MinValue ? "" : aluguel.DataPagamento.ToShortDateString()
                     );
         }
 

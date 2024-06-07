@@ -15,8 +15,8 @@ namespace FestasInfantis.WinApp.ModuloTema.ModuloItens
             Item item = SelecionarPorId(id);
 
             Tema temaRelacionados = contexto.Temas.Find(x => x.Itens.Contains(item));
-
-            temaRelacionados.Itens.Remove(item);
+            if (temaRelacionados != null)
+                temaRelacionados.Itens.Remove(item);
 
             return base.Excluir(id);
         }

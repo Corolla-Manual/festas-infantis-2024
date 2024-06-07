@@ -6,6 +6,15 @@ namespace FestasInfantis.WinApp.ModuloTema
 {
     public class Tema : EntidadeBase
     {
+        public string Nome { get; set; }
+        public double Valor { get; set; }
+        public List<Item> Itens { get; set; }
+        public List<Aluguel> Alugueis { get; set; }
+
+        public Tema()
+        {
+
+        }
         public Tema(string nome, List<Item> itens)
         {
             Nome = nome;
@@ -13,14 +22,6 @@ namespace FestasInfantis.WinApp.ModuloTema
             Valor = CalcularTotal();
             Alugueis = new List<Aluguel>();
         }
-        public Tema()
-        {
-
-        }
-        public string Nome { get; set; }
-        public double Valor { get; set; }
-        public List<Item> Itens { get; set; }
-        public List<Aluguel> Alugueis { get; set; }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {

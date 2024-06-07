@@ -9,8 +9,6 @@
         List<Aluguel> SelecionarTodos();
         List<Aluguel> SelecionarAlugueisConcluidos();
         List<Aluguel> SelecionarAlugueisPendentes();
-        void AdicionarAluguelNasDependencias(Aluguel aluguel);
-        void RemoverAluguelNasDependencias(Aluguel aluguel);
-        void EditarAluguelNasDependencias(Aluguel aluguelSelecionado, Aluguel aluguelEditado);
+
     }
 }

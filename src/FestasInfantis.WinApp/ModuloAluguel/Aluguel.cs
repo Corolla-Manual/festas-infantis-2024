@@ -1,6 +1,7 @@
 ﻿using eAgenda.ConsoleApp.Compartilhado;
 using FestasInfantis.WinApp.ModuloCliente;
 using FestasInfantis.WinApp.ModuloTema;
+using FestasInfantis.WinApp.ModuloTema.ModuloItens;
 
 namespace FestasInfantis.WinApp.ModuloAluguel
 {
@@ -12,6 +13,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         public Tema Tema { get; set; }
         public Festa Festa { get; set; }
         public DateTime DataPagamento { get; set; }
+        public List<Item> Itens { get; set; }
 
         public Aluguel(Pagamento pagamento, Cliente cliente, Tema tema, Festa festa)
         {
@@ -20,10 +22,11 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             Cliente = cliente;
             Tema = tema;
             Festa = festa;
+            Itens = tema.Itens;
         }
         public Aluguel()
         {
-            
+
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
@@ -36,6 +39,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             Tema = a.Tema;
             Festa = a.Festa;
             DataPagamento = a.DataPagamento;
+            Itens = a.Itens;
         }
 
         public override List<string> Validar()
@@ -49,6 +53,13 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         {
             return $"Id: {Id}";
         }
+        public void AdicionarDependencias()
+        {
+            if (!Cliente.Alugueis.Exists(c => Cliente == this.Cliente))
+                Cliente.Alugueis.Add(this);
 
+            if (!Tema.Alugueis.Exists(c => Tema == this.Tema))
+                Tema.Alugueis.Add(this);
+        }
     }
 }

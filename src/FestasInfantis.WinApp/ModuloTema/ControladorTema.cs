@@ -42,9 +42,9 @@ namespace FestasInfantis.WinApp.ModuloTema
 
         public override void Editar()
         {
-
             Tema TemaSelecionado = repositorioTema.SelecionarPorId(tabelaTema.ObterRegistroSelecionado());
             TelaAtualizacaoTemaForm telaTema = new(TemaSelecionado, repositorioItem.SelecionarTodos());
+
             if (TemaSelecionado == null)
             {
                 MessageBox.Show(
@@ -61,8 +61,10 @@ namespace FestasInfantis.WinApp.ModuloTema
             if (resultado != DialogResult.OK)
                 return;
 
+
             repositorioItem.LimparDesmarcados(TemaSelecionado.Nome);
             Tema TemaEditada = new(telaTema.Nome, telaTema.Itens);
+            TemaEditada.Alugueis = TemaSelecionado.Alugueis;
             TemaEditada.MarcarItens();
             repositorioTema.Editar(TemaSelecionado.Id, TemaEditada);
 

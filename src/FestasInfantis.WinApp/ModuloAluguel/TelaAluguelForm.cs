@@ -13,6 +13,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             set
             {
                 txtIdAlugel.Text = value.Id.ToString();
+
                 if (value.Cliente == null)
                     comboBoxCliente.SelectedIndex = 0;
                 comboBoxCliente.SelectedItem = value.Cliente;
@@ -20,6 +21,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
                 if (value.Tema == null)
                     comboBoxTema.SelectedIndex = 0;
                 comboBoxTema.SelectedItem = value.Tema;
+
                 comboBoxSinal.SelectedItem = value.Pagamento.PorcentagemEntrada;
                 datetimeDataFesta.Value = value.Festa.DataFesta;
                 txtHoraInicio.Text = value.Festa.HoraInicio.ToString("HH:mm");
@@ -92,10 +94,11 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             string rua = txtRua.Text;
             int numero = int.Parse(txtNumero.Text);
 
-            double valorTotalTema = double.Parse(txtValorTema.Text);
+            double valorEntrada = double.Parse(txtValorEntrada.Text);
+            double valorTema = double.Parse(txtValorTema.Text);
+            int procentagemEntrada = (int)comboBoxSinal.SelectedItem;
             double valorTemaDesconto = double.Parse(txtValorTemaDesconto.Text);
             double valorPendente = double.Parse(txtValorPendente.Text);
-            int entrada = int.Parse(txtValorEntrada.Text);
             double porcentagemDesconto = double.Parse(txtPorcentagemDesconto.Text);
 
             Cliente cliente = (Cliente)comboBoxCliente.SelectedItem;
@@ -106,7 +109,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
             Festa festa = new Festa(endereco, dataFesta, DateTime.Parse(horaInicio), DateTime.Parse(horaTermino));
 
-            Pagamento pagamento = new Pagamento(valorTotalTema, valorTemaDesconto, valorPendente, entrada, porcentagemDesconto);
+            Pagamento pagamento = new Pagamento(valorTema, valorTemaDesconto, valorPendente, procentagemEntrada, porcentagemDesconto, valorEntrada);
 
             aluguel = new Aluguel(pagamento, cliente, tema, festa);
 
@@ -117,6 +120,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
                 DialogResult = DialogResult.None;
             }
+
         }
 
         private void comboBoxCliente_SelectedIndexChanged(object sender, EventArgs e)

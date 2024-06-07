@@ -1,5 +1,6 @@
 ﻿using FestasInfantis.WinApp.Compartilhado;
 using FestasInfantis.WinApp.ModuloAluguel;
+using FestasInfantis.WinApp.ModuloTema.ModuloItens;
 
 namespace FestasInfantis.WinApp.ModuloTema
 {
@@ -19,9 +20,17 @@ namespace FestasInfantis.WinApp.ModuloTema
         {
             Tema tema = SelecionarPorId(id);
 
-            Aluguel aluguelRelacionados = contexto.Alugueis.Find(x => x.Tema == tema);
+            List<Item> itens = contexto.Itens.FindAll(i => i.Tema == tema.Nome);
 
-            aluguelRelacionados.Tema = null;
+            if (itens.Any())
+                foreach (Item i in itens)
+                {
+                    i.Tema = null;
+                }
+
+            Aluguel aluguelRelacionados = contexto.Alugueis.Find(x => x.Tema == tema);
+            if (aluguelRelacionados != null)
+                aluguelRelacionados.Tema = null;
 
             return base.Excluir(id);
         }

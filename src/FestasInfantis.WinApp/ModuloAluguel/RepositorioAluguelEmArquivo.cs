@@ -19,11 +19,13 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         {
             Aluguel aluguel = SelecionarPorId(id);
 
-            Cliente clienteRelacionados = contexto.Clientes.Find(x => x.Alugueis.Contains(aluguel));
-            clienteRelacionados.Alugueis.Remove(aluguel);
+            Cliente clienteRelacionado = contexto.Clientes.Find(x => x.Alugueis.Contains(aluguel));
+            if (clienteRelacionado != null)
+                clienteRelacionado.Alugueis.Remove(aluguel);
 
             Tema temaRelacionado = contexto.Temas.Find(x => x.Alugueis.Contains(aluguel));
-            temaRelacionado.Alugueis.Remove(aluguel);
+            if (temaRelacionado != null)
+                temaRelacionado.Alugueis.Remove(aluguel);
 
             return base.Excluir(id);
         }
@@ -53,36 +55,5 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             return alugueisPendentes;
         }
 
-        public void AdicionarAluguelNasDependencias(Aluguel aluguel)
-        {
-            aluguel.Cliente.Alugueis.Add(aluguel);
-            aluguel.Tema.Alugueis.Add(aluguel);
-        }
-        public void RemoverAluguelNasDependencias(Aluguel aluguel)
-        {
-            Aluguel aluguelRemover = aluguel;
-            foreach (Aluguel a in aluguel.Cliente.Alugueis)
-            {
-                if (a.Cliente.Nome == aluguel.Cliente.Nome)
-                {
-                    aluguelRemover = a;
-                }
-            }
-            aluguel.Cliente.Alugueis.Remove(aluguelRemover);
-
-            foreach (Aluguel a in aluguel.Tema.Alugueis)
-            {
-                if (a.Tema.Nome == aluguel.Tema.Nome)
-                {
-                    aluguelRemover = a;
-                }
-            }
-            aluguel.Tema.Alugueis.Remove(aluguelRemover);
-        }
-        public void EditarAluguelNasDependencias(Aluguel aluguelSelecionado, Aluguel aluguelEditado)
-        {
-            RemoverAluguelNasDependencias(aluguelSelecionado);
-            AdicionarAluguelNasDependencias(aluguelEditado);
-        }
     }
 }
