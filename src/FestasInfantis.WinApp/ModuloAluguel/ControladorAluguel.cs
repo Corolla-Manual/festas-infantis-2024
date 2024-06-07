@@ -182,9 +182,10 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             if (resultado != DialogResult.OK)
                 return;
 
-
             Aluguel aluguelEditado = telaConclusao.Aluguel;
 
+            repositorioCliente.AtualizarDependencia(aluguelSelecionado, aluguelEditado);
+            repositorioTema.AtualizarDependencia(aluguelSelecionado, aluguelEditado);
             repositorioAluguel.Editar(aluguelSelecionado.Id, aluguelEditado);
 
             CarregarAlugueis();

@@ -24,7 +24,7 @@
             "$values": [
               {
                 "$id": "7",
-                "Status": false,
+                "Status": true,
                 "Pagamento": {
                   "$id": "8",
                   "ValorTema": 1,
@@ -66,11 +66,11 @@
                   "HoraInicio": "2024-06-07T11:11:00",
                   "HoraTermino": "2024-06-07T11:11:00"
                 },
-                "DataPagamento": "0001-01-01T00:00:00",
+                "DataPagamento": "2024-06-07T12:01:26.3568704-03:00",
                 "Itens": {
                   "$ref": "5"
                 },
-                "Id": 0
+                "Id": 1
               }
             ]
           },
@@ -152,32 +152,14 @@
     "$id": "24",
     "$values": [
       {
-        "$id": "25",
-        "Status": false,
-        "Pagamento": {
-          "$ref": "8"
-        },
-        "Cliente": {
-          "$ref": "9"
-        },
-        "Tema": {
-          "$ref": "4"
-        },
-        "Festa": {
-          "$ref": "11"
-        },
-        "DataPagamento": "0001-01-01T00:00:00",
-        "Itens": {
-          "$ref": "5"
-        },
-        "Id": 1
+        "$ref": "7"
       }
     ]
   },
   "Desconto": {
-    "$id": "26",
-    "DescontoUnitario": 0,
-    "DescontoMaximo": 0,
+    "$id": "25",
+    "DescontoUnitario": 5,
+    "DescontoMaximo": 50,
     "Id": 0
   }
 }
