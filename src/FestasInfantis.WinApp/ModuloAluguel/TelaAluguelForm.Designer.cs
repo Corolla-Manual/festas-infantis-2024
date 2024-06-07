@@ -568,6 +568,7 @@
             Controls.Add(button3);
             Controls.Add(label1);
             Name = "TelaAluguelForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Cadastro de Aluguéis";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);

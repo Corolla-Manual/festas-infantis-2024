@@ -46,6 +46,12 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         {
             List<string> erros = new List<string>();
 
+            if (Cliente == null)
+                erros.Add("É necessário selecionar um cliente!");
+
+            if (Tema == null)
+                erros.Add("É necessário selecionar um tema!");
+
             return erros;
         }
 
