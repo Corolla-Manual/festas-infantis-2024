@@ -44,7 +44,6 @@ namespace FestasInfantis.WinApp.ModuloTema
         {
             Tema TemaSelecionado = repositorioTema.SelecionarPorId(tabelaTema.ObterRegistroSelecionado());
             TelaAtualizacaoTemaForm telaTema = new(TemaSelecionado, repositorioItem.SelecionarTodos());
-
             if (TemaSelecionado == null)
             {
                 MessageBox.Show(
@@ -60,11 +59,10 @@ namespace FestasInfantis.WinApp.ModuloTema
 
             if (resultado != DialogResult.OK)
                 return;
-
             Tema TemaEditada = new(telaTema.Nome, telaTema.Itens);
             TemaEditada.Alugueis = TemaSelecionado.Alugueis;
-            repositorioTema.Editar(TemaSelecionado.Id, TemaEditada);
             repositorioItem.AtualizarDependencia(TemaSelecionado, TemaEditada);
+            repositorioTema.Editar(TemaSelecionado.Id, TemaEditada);
             CarregarTemas();
 
             TelaPrincipalForm

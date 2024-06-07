@@ -24,5 +24,35 @@ namespace FestasInfantis.WinApp.ModuloCliente
 
             return base.Excluir(id);
         }
+
+        public void AdicionarDependencia(Aluguel novoAluguel)
+        {
+            Cliente cliente = contexto.Clientes.Find(i => i == novoAluguel.Cliente);
+            cliente.Alugueis.Add(novoAluguel);
+            base.Editar(cliente.Id, cliente);
+        }
+
+        public void AtualizarDependencia(Aluguel aluguelSelecionado, Aluguel aluguelEditado)
+        {
+            Aluguel aluguelARemover = new Aluguel();
+
+            foreach (Cliente i in contexto.Clientes)
+            {
+                foreach (Aluguel a in i.Alugueis)
+                {
+                    if (aluguelSelecionado.Cliente.Nome == a.Cliente.Nome)
+                        aluguelARemover = a;
+                    break;
+                }
+                if (aluguelARemover.Cliente != null)
+                    break;
+            }
+
+            Cliente cliente = contexto.Clientes.Find(c => c.Alugueis.Contains(aluguelARemover));
+            cliente.Alugueis.Remove(aluguelARemover);
+
+            cliente = contexto.Clientes.Find(i => i == aluguelEditado.Cliente);
+            cliente.Alugueis.Add(aluguelEditado);
+        }
     }
 }

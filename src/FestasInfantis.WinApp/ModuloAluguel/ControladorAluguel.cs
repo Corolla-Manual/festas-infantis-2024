@@ -9,16 +9,16 @@ namespace FestasInfantis.WinApp.ModuloAluguel
     {
         private IRepositorioAluguel repositorioAluguel;
         private TabelaAluguelControl tabelaAluguel;
-        private List<Cliente> clientes;
-        private List<Tema> temas;
+        private IRepositorioCliente repositorioCliente;
+        private IRepositorioTema repositorioTema;
         private Desconto desconto;
 
         public ControladorAluguel(IRepositorioAluguel repAluguel, IRepositorioCliente repoCliente,
             IRepositorioTema repoTema, RepositorioDesconto repoDesconto)
         {
             repositorioAluguel = repAluguel;
-            clientes = repoCliente.SelecionarTodos();
-            temas = repoTema.SelecionarTodos();
+            repositorioCliente = repoCliente;
+            repositorioTema = repoTema;
             desconto = repoDesconto.RetornaDesconto();
         }
 
@@ -38,7 +38,8 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         {
             if (!ListasVazias())
             {
-                TelaAluguelForm telaAluguel = new TelaAluguelForm(clientes, temas, desconto);
+                TelaAluguelForm telaAluguel = new TelaAluguelForm(repositorioCliente.SelecionarTodos(),
+                    repositorioTema.SelecionarTodos(), desconto);
 
                 DialogResult resultado = telaAluguel.ShowDialog();
 
@@ -48,7 +49,8 @@ namespace FestasInfantis.WinApp.ModuloAluguel
                 Aluguel novoAluguel = telaAluguel.Aluguel;
 
                 repositorioAluguel.Cadastrar(novoAluguel);
-
+                repositorioCliente.AdicionarDependencia(novoAluguel);
+                repositorioTema.AdicionarDependencia(novoAluguel);
                 CarregarAlugueis();
 
                 TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{novoAluguel.Id}\" foi criado com sucesso!");
@@ -59,7 +61,8 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         {
             if (!ListasVazias())
             {
-                TelaAluguelForm telaAluguel = new TelaAluguelForm(clientes, temas, desconto);
+                TelaAluguelForm telaAluguel = new TelaAluguelForm(repositorioCliente.SelecionarTodos(),
+                   repositorioTema.SelecionarTodos(), desconto);
 
                 int idSelecionado = tabelaAluguel.ObterRegistroSelecionado();
 
@@ -96,6 +99,8 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
                 Aluguel aluguelEditado = telaAluguel.Aluguel;
 
+                repositorioCliente.AtualizarDependencia(aluguelSelecionado, aluguelEditado);
+                repositorioTema.AtualizarDependencia(aluguelSelecionado, aluguelEditado);
                 repositorioAluguel.Editar(aluguelSelecionado.Id, aluguelEditado);
 
                 CarregarAlugueis();
@@ -207,7 +212,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         }
         private bool ListasVazias()
         {
-            if (clientes.Count == 0 || temas.Count == 0)
+            if (repositorioTema.SelecionarTodos().Count == 0 || repositorioTema.SelecionarTodos().Count == 0)
             {
                 TelaPrincipalForm.Instancia.AtualizarRodape("Não é possível cadastrar um aluguel sem um \"Cliente\" e um \"Tema\"!");
                 return true;

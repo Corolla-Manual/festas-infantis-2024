@@ -25,7 +25,7 @@ namespace FestasInfantis.WinApp.ModuloTema
             {
                 foreach (Item it in tema.Itens)
                 {
-                    if (i.Descricao == it.Descricao)
+                    if (i.Id == it.Id)
                         itens.Add(it);
                 }
             }
@@ -41,6 +41,36 @@ namespace FestasInfantis.WinApp.ModuloTema
                 aluguelRelacionados.Tema = null;
 
             return base.Excluir(id);
+        }
+
+        public void AdicionarDependencia(Aluguel novoAluguel)
+        {
+            Tema tema = contexto.Temas.Find(i => i == novoAluguel.Tema);
+            tema.Alugueis.Add(novoAluguel);
+            base.Editar(tema.Id, tema);
+        }
+
+        public void AtualizarDependencia(Aluguel aluguelSelecionado, Aluguel aluguelEditado)
+        {
+            Aluguel aluguelARemover = new Aluguel();
+
+            foreach (Tema i in contexto.Temas)
+            {
+                foreach (Aluguel a in i.Alugueis)
+                {
+                    if (aluguelSelecionado.Tema.Nome == a.Tema.Nome)
+                        aluguelARemover = a;
+                    break;
+                }
+                if (aluguelARemover.Tema != null)
+                    break;
+            }
+
+            Tema tema = contexto.Temas.Find(c => c.Alugueis.Contains(aluguelARemover));
+            tema.Alugueis.Remove(aluguelARemover);
+
+            tema = contexto.Temas.Find(i => i == aluguelEditado.Tema);
+            tema.Alugueis.Add(aluguelEditado);
         }
     }
 }

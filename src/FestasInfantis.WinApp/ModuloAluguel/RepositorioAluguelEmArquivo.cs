@@ -19,13 +19,29 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         {
             Aluguel aluguel = SelecionarPorId(id);
 
-            Cliente clienteRelacionado = contexto.Clientes.Find(x => x.Alugueis.Contains(aluguel));
-            if (clienteRelacionado != null)
-                clienteRelacionado.Alugueis.Remove(aluguel);
+            Aluguel alguelARemover = new Aluguel();
 
-            Tema temaRelacionado = contexto.Temas.Find(x => x.Alugueis.Contains(aluguel));
-            if (temaRelacionado != null)
-                temaRelacionado.Alugueis.Remove(aluguel);
+            foreach (Cliente i in contexto.Clientes)
+            {
+                foreach (Aluguel a in i.Alugueis)
+                {
+                    if (aluguel.Id == a.Id)
+                        alguelARemover = a;
+                }
+            }
+            Cliente cliente = contexto.Clientes.Find(c => c.Alugueis.Contains(alguelARemover));
+            cliente.Alugueis.Remove(alguelARemover);
+
+            foreach (Tema i in contexto.Temas)
+            {
+                foreach (Aluguel a in i.Alugueis)
+                {
+                    if (aluguel.Id == a.Id)
+                        alguelARemover = a;
+                }
+            }
+            Tema tema = contexto.Temas.Find(c => c.Alugueis.Contains(alguelARemover));
+            tema.Alugueis.Remove(alguelARemover);
 
             return base.Excluir(id);
         }

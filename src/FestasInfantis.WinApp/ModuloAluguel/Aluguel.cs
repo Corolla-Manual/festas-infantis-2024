@@ -53,13 +53,5 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         {
             return $"Id: {Id}";
         }
-        public void AdicionarDependencias()
-        {
-            if (!Cliente.Alugueis.Exists(c => Cliente == this.Cliente))
-                Cliente.Alugueis.Add(this);
-
-            if (!Tema.Alugueis.Exists(c => Tema == this.Tema))
-                Tema.Alugueis.Add(this);
-        }
     }
 }

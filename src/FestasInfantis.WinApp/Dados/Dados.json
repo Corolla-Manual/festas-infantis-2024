@@ -7,39 +7,175 @@
         "$id": "3",
         "Descricao": "1",
         "Valor": 1,
-        "Tema": null,
+        "Tema": {
+          "$id": "4",
+          "Nome": "t1",
+          "Valor": 1,
+          "Itens": {
+            "$id": "5",
+            "$values": [
+              {
+                "$ref": "3"
+              }
+            ]
+          },
+          "Alugueis": {
+            "$id": "6",
+            "$values": [
+              {
+                "$id": "7",
+                "Status": false,
+                "Pagamento": {
+                  "$id": "8",
+                  "ValorTema": 1,
+                  "ValorTemaDesconto": 1,
+                  "ValorPendente": 0.6,
+                  "PorcentagemEntrada": 40,
+                  "PorcentagemDesconto": 0,
+                  "ValorEntrada": 0.4
+                },
+                "Cliente": {
+                  "$id": "9",
+                  "Nome": "c1",
+                  "Telefone": "(  ) 1     -",
+                  "Cpf": "   .   .1  -",
+                  "Alugueis": {
+                    "$id": "10",
+                    "$values": [
+                      {
+                        "$ref": "7"
+                      }
+                    ]
+                  },
+                  "Id": 1
+                },
+                "Tema": {
+                  "$ref": "4"
+                },
+                "Festa": {
+                  "$id": "11",
+                  "Endereco": {
+                    "$id": "12",
+                    "Rua": "1",
+                    "Numero": 1,
+                    "Bairro": "1",
+                    "Cidade": "1",
+                    "Estado": "1"
+                  },
+                  "DataFesta": "2024-06-07T11:58:21.9197359-03:00",
+                  "HoraInicio": "2024-06-07T11:11:00",
+                  "HoraTermino": "2024-06-07T11:11:00"
+                },
+                "DataPagamento": "0001-01-01T00:00:00",
+                "Itens": {
+                  "$ref": "5"
+                },
+                "Id": 0
+              }
+            ]
+          },
+          "Id": 1
+        },
         "Id": 1
       },
       {
-        "$id": "4",
+        "$id": "13",
         "Descricao": "2",
         "Valor": 1,
-        "Tema": null,
+        "Tema": {
+          "$id": "14",
+          "Nome": "t2",
+          "Valor": 1,
+          "Itens": {
+            "$id": "15",
+            "$values": [
+              {
+                "$ref": "13"
+              }
+            ]
+          },
+          "Alugueis": {
+            "$id": "16",
+            "$values": []
+          },
+          "Id": 2
+        },
         "Id": 2
-      },
-      {
-        "$id": "5",
-        "Descricao": "3",
-        "Valor": 1,
-        "Tema": null,
-        "Id": 3
       }
     ]
   },
   "Temas": {
-    "$id": "6",
-    "$values": []
+    "$id": "17",
+    "$values": [
+      {
+        "$ref": "4"
+      },
+      {
+        "$ref": "14"
+      },
+      {
+        "$id": "18",
+        "Nome": "t3",
+        "Valor": 0,
+        "Itens": {
+          "$id": "19",
+          "$values": []
+        },
+        "Alugueis": {
+          "$id": "20",
+          "$values": []
+        },
+        "Id": 3
+      }
+    ]
   },
   "Clientes": {
-    "$id": "7",
-    "$values": []
+    "$id": "21",
+    "$values": [
+      {
+        "$ref": "9"
+      },
+      {
+        "$id": "22",
+        "Nome": "c2",
+        "Telefone": "(  )   2   -",
+        "Cpf": "   .2  .   -",
+        "Alugueis": {
+          "$id": "23",
+          "$values": []
+        },
+        "Id": 2
+      }
+    ]
   },
   "Alugueis": {
-    "$id": "8",
-    "$values": []
+    "$id": "24",
+    "$values": [
+      {
+        "$id": "25",
+        "Status": false,
+        "Pagamento": {
+          "$ref": "8"
+        },
+        "Cliente": {
+          "$ref": "9"
+        },
+        "Tema": {
+          "$ref": "4"
+        },
+        "Festa": {
+          "$ref": "11"
+        },
+        "DataPagamento": "0001-01-01T00:00:00",
+        "Itens": {
+          "$ref": "5"
+        },
+        "Id": 1
+      }
+    ]
   },
   "Desconto": {
-    "$id": "9",
+    "$id": "26",
     "DescontoUnitario": 0,
     "DescontoMaximo": 0,
     "Id": 0
