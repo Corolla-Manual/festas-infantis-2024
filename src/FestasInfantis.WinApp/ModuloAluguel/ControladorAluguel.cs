@@ -175,6 +175,16 @@ namespace FestasInfantis.WinApp.ModuloAluguel
 
             Aluguel aluguelSelecionado = repositorioAluguel.SelecionarPorId(idSelecionado);
 
+            if (aluguelSelecionado == null)
+            {
+                MessageBox.Show(
+                     "Não é possível realizar esta ação sem um registro selecionado.",
+                     "Aviso",
+                     MessageBoxButtons.OK,
+                     MessageBoxIcon.Error
+                     );
+                return;
+            }
             TelaConclusaoAluguelForm telaConclusao = new TelaConclusaoAluguelForm(aluguelSelecionado);
 
             DialogResult resultado = telaConclusao.ShowDialog();
