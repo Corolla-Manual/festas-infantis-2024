@@ -67,7 +67,8 @@ namespace FestasInfantis.WinApp.ModuloTema
             }
 
             Tema tema = contexto.Temas.Find(c => c.Alugueis.Contains(aluguelARemover));
-            tema.Alugueis.Remove(aluguelARemover);
+            if (tema != null)
+                tema.Alugueis.Remove(aluguelARemover);
 
             tema = contexto.Temas.Find(i => i == aluguelEditado.Tema);
             tema.Alugueis.Add(aluguelEditado);

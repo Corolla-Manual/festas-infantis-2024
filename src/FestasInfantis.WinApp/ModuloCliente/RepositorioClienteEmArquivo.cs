@@ -49,7 +49,8 @@ namespace FestasInfantis.WinApp.ModuloCliente
             }
 
             Cliente cliente = contexto.Clientes.Find(c => c.Alugueis.Contains(aluguelARemover));
-            cliente.Alugueis.Remove(aluguelARemover);
+            if (cliente != null)
+                cliente.Alugueis.Remove(aluguelARemover);
 
             cliente = contexto.Clientes.Find(i => i == aluguelEditado.Cliente);
             cliente.Alugueis.Add(aluguelEditado);
