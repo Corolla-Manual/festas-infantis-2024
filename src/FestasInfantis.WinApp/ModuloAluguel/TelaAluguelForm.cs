@@ -53,7 +53,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
             Tema temaSelecionado = (Tema)comboBoxTema.SelectedItem;
             int entradaSelecionada = (int)comboBoxSinal.SelectedItem;
 
-            double valorTotalTema = temaSelecionado.CalcularTotal();
+            double valorTotalTema = temaSelecionado != null ? temaSelecionado.CalcularTotal() : 0;
             double descontoTotal = desconto.CalcularPorcentagem(clienteSelecionado);
             double valorTemaComDesconto = (valorTotalTema * (1 - (descontoTotal / 100)));
             double valorEntrada = valorTemaComDesconto * ((double)entradaSelecionada / 100);

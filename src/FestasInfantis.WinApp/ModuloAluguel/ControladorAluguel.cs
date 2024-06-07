@@ -215,7 +215,7 @@ namespace FestasInfantis.WinApp.ModuloAluguel
         {
             if (repositorioCliente.SelecionarTodos().Count == 0 || repositorioTema.SelecionarTodos().Count == 0)
             {
-                TelaPrincipalForm.Instancia.AtualizarRodape("Não é possível cadastrar um aluguel sem um \"Cliente\" e um \"Tema\"!");
+                TelaPrincipalForm.Instancia.AtualizarRodape("Não é possível Cadastrar ou Editar um aluguel sem um \"Cliente\" e um \"Tema\"!");
                 return true;
             }
             return false;
