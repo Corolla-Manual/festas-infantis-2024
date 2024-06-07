@@ -28,14 +28,19 @@ namespace FestasInfantis.WinApp.ModuloTema
         private void CarregarListaItens(Tema tema, List<Item> itens)
         {
             int i = 0;
-            foreach (Item it in itens)
+            foreach (Item it in tema.Itens)
             {
+
                 listItens.Items.Add(it);
 
-                if (it.Tema == tema.Nome)
-                    listItens.SetItemChecked(i, true);
+                listItens.SetItemChecked(i, true);
 
                 i++;
+            }
+            foreach (Item it in itens.Except(tema.Itens))
+            {
+                if (it.Tema == null)
+                    listItens.Items.Add(it);
             }
         }
 

@@ -5,102 +5,41 @@
     "$values": [
       {
         "$id": "3",
-        "Descricao": "q1",
+        "Descricao": "1",
         "Valor": 1,
-        "Tema": "t1",
+        "Tema": null,
         "Id": 1
+      },
+      {
+        "$id": "4",
+        "Descricao": "2",
+        "Valor": 1,
+        "Tema": null,
+        "Id": 2
+      },
+      {
+        "$id": "5",
+        "Descricao": "3",
+        "Valor": 1,
+        "Tema": null,
+        "Id": 3
       }
     ]
   },
   "Temas": {
-    "$id": "4",
-    "$values": [
-      {
-        "$id": "5",
-        "Nome": "t1",
-        "Valor": 1,
-        "Itens": {
-          "$id": "6",
-          "$values": [
-            {
-              "$ref": "3"
-            }
-          ]
-        },
-        "Alugueis": {
-          "$id": "7",
-          "$values": [
-            {
-              "$id": "8",
-              "Status": false,
-              "Pagamento": {
-                "$id": "9",
-                "ValorTema": 1,
-                "ValorTemaDesconto": 1,
-                "ValorPendente": 0.6,
-                "PorcentagemEntrada": 40,
-                "PorcentagemDesconto": 0,
-                "ValorEntrada": 0.4
-              },
-              "Cliente": {
-                "$id": "10",
-                "Nome": "q1",
-                "Telefone": "( 1)       -",
-                "Cpf": "   .1  .   -",
-                "Alugueis": {
-                  "$id": "11",
-                  "$values": [
-                    {
-                      "$ref": "8"
-                    }
-                  ]
-                },
-                "Id": 1
-              },
-              "Tema": {
-                "$ref": "5"
-              },
-              "Festa": {
-                "$id": "12",
-                "Endereco": {
-                  "$id": "13",
-                  "Rua": "1",
-                  "Numero": 1,
-                  "Bairro": "1",
-                  "Cidade": "1",
-                  "Estado": "1"
-                },
-                "DataFesta": "2024-06-07T00:22:52.2315383-03:00",
-                "HoraInicio": "2024-06-07T11:11:00",
-                "HoraTermino": "2024-06-07T11:11:00"
-              },
-              "DataPagamento": "0001-01-01T00:00:00",
-              "Id": 1
-            }
-          ]
-        },
-        "Id": 1
-      }
-    ]
+    "$id": "6",
+    "$values": []
   },
   "Clientes": {
-    "$id": "14",
-    "$values": [
-      {
-        "$ref": "10"
-      }
-    ]
+    "$id": "7",
+    "$values": []
   },
   "Alugueis": {
-    "$id": "15",
-    "$values": [
-      {
-        "$ref": "8"
-      }
-    ]
+    "$id": "8",
+    "$values": []
   },
   "Desconto": {
-    "$id": "16",
+    "$id": "9",
     "DescontoUnitario": 0,
     "DescontoMaximo": 0,
     "Id": 0

@@ -51,15 +51,6 @@ namespace FestasInfantis.WinApp.ModuloTema
             }
             return valor;
         }
-
-        internal void MarcarItens()
-        {
-            foreach (Item item in Itens)
-            {
-                item.Tema = Nome;
-            }
-
-        }
         public override string ToString()
         {
             return $"{Nome}";

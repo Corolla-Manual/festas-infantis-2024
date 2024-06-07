@@ -30,7 +30,6 @@ namespace FestasInfantis.WinApp.ModuloTema
             string nome = txtNome.Text;
             List<Item> itens = listItens.CheckedItems.Cast<Item>().ToList();
             tema = new Tema(nome, itens);
-            tema.MarcarItens();
 
             List<string> erros = tema.Validar();
 

@@ -34,7 +34,7 @@ namespace FestasInfantis.WinApp.ModuloTema
             Tema novoTema = telaTema.Tema;
 
             repositorioTema.Cadastrar(novoTema);
-
+            repositorioItem.AdicionarDependencia(novoTema);
             CarregarTemas();
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{novoTema.Nome}\" foi criado com sucesso!");
@@ -61,13 +61,10 @@ namespace FestasInfantis.WinApp.ModuloTema
             if (resultado != DialogResult.OK)
                 return;
 
-
-            repositorioItem.LimparDesmarcados(TemaSelecionado.Nome);
             Tema TemaEditada = new(telaTema.Nome, telaTema.Itens);
             TemaEditada.Alugueis = TemaSelecionado.Alugueis;
-            TemaEditada.MarcarItens();
             repositorioTema.Editar(TemaSelecionado.Id, TemaEditada);
-
+            repositorioItem.AtualizarDependencia(TemaSelecionado, TemaEditada);
             CarregarTemas();
 
             TelaPrincipalForm
@@ -96,7 +93,7 @@ namespace FestasInfantis.WinApp.ModuloTema
                 return;
 
             repositorioTema.Excluir(TemaSelecionado.Id);
-            repositorioItem.LimparDesmarcados(TemaSelecionado.Nome);
+
             CarregarTemas();
 
             TelaPrincipalForm.Instancia.AtualizarRodape($"O registro \"{TemaSelecionado.Nome}\" foi excluído com sucesso!");

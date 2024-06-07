@@ -20,7 +20,15 @@ namespace FestasInfantis.WinApp.ModuloTema
         {
             Tema tema = SelecionarPorId(id);
 
-            List<Item> itens = contexto.Itens.FindAll(i => i.Tema == tema.Nome);
+            List<Item> itens = new List<Item>();
+            foreach (Item i in contexto.Itens)
+            {
+                foreach (Item it in tema.Itens)
+                {
+                    if (i.Descricao == it.Descricao)
+                        itens.Add(it);
+                }
+            }
 
             if (itens.Any())
                 foreach (Item i in itens)
