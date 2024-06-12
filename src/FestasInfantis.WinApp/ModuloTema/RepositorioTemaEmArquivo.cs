@@ -47,7 +47,6 @@ namespace FestasInfantis.WinApp.ModuloTema
         {
             Tema tema = contexto.Temas.Find(i => i == novoAluguel.Tema);
             tema.Alugueis.Add(novoAluguel);
-            base.Editar(tema.Id, tema);
         }
 
         public void AtualizarDependencia(Aluguel aluguelSelecionado, Aluguel aluguelEditado)
